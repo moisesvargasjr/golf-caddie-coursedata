@@ -8,8 +8,10 @@
  *   npm run cli -- show <id>
  *   npm run cli -- set-par <id> <holeNumber> <par>
  *   npm run cli -- seed-import <golfCourseApiId>   (env GOLF_COURSE_API_KEY)
+ *   npm run cli -- import-anchors <exportFile.json> (from the iOS app)
  */
 
+import { readFileSync } from 'node:fs'
 import { load, save, upsertCourse } from './store.js'
 import { validateCourseData } from './validate.js'
 import { SCHEMA_VERSION, type CuratedCourse } from './schema.js'
@@ -91,9 +93,35 @@ switch (cmd) {
     break
   }
 
+  case 'import-anchors': {
+    const path = args[0] ?? fail('usage: import-anchors <exportFile.json>')
+    const patch = JSON.parse(readFileSync(path, 'utf8')) as {
+      courseId?: string
+      anchors?: { holeNumber: number; teeAnchor?: unknown; greenAnchor?: unknown }[]
+    }
+    if (!patch.courseId || !Array.isArray(patch.anchors)) {
+      fail('not an anchor export (expected { courseId, anchors[] })')
+    }
+    const file = load()
+    const course = file.courses.find((c) => c.id === patch.courseId)
+      ?? fail(`no course "${patch.courseId}" — seed/import the course first`)
+    let applied = 0
+    for (const a of patch.anchors!) {
+      const hole = course.holes.find((h) => h.number === a.holeNumber)
+      if (!hole) continue
+      if (a.teeAnchor) hole.teeAnchor = a.teeAnchor as { lat: number; lng: number }
+      if (a.greenAnchor) hole.greenAnchor = a.greenAnchor as { lat: number; lng: number }
+      applied++
+    }
+    save(file) // re-validates (lat/lng ranges etc.)
+    console.log(`✓ merged anchors for ${applied} hole(s) into ${patch.courseId} — review the diff, then commit`)
+    break
+  }
+
   default:
     console.log(
       `golf-caddie-coursedata CLI (schema v${SCHEMA_VERSION})\n` +
-        '  validate | list | show <id> | set-par <id> <hole> <par> | seed-import <golfCourseApiId>',
+        '  validate | list | show <id> | set-par <id> <hole> <par> |\n' +
+        '  seed-import <golfCourseApiId> | import-anchors <exportFile.json>',
     )
 }
