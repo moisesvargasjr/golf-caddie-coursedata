@@ -1,0 +1,17 @@
+{
+  "name": "golf-caddie-coursedata",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Curated golf course reference data + tooling for GolfCaddie. The iOS app reads the published data/courses.json (raw git URL) read-only; there is no server.",
+  "scripts": {
+    "cli": "tsx src/cli.ts",
+    "validate": "tsx src/cli.ts validate",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^25.8.0",
+    "tsx": "^4.22.1",
+    "typescript": "^5.9.3"
+  }
+}

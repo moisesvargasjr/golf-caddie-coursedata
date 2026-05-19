@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "courses": [
+    {
+      "id": "oaks-at-the-welk",
+      "name": "The Oaks at the Welk",
+      "aliases": [
+        "Welk Resort San Diego - Oaks Course",
+        "Lawrence Welk Resort",
+        "The Oaks Course"
+      ],
+      "location": { "lat": 33.2436, "lng": -117.0863 },
+      "holes": [
+        { "number": 1, "par": 3 },
+        { "number": 2, "par": 3 },
+        { "number": 3, "par": 3 },
+        { "number": 4, "par": 3 },
+        { "number": 5, "par": 3 },
+        { "number": 6, "par": 3 },
+        { "number": 7, "par": 3 },
+        { "number": 8, "par": 3 },
+        { "number": 9, "par": 3 },
+        { "number": 10, "par": 3 },
+        { "number": 11, "par": 3 },
+        { "number": 12, "par": 3 },
+        { "number": 13, "par": 3 },
+        { "number": 14, "par": 3 },
+        { "number": 15, "par": 3 },
+        { "number": 16, "par": 3 },
+        { "number": 17, "par": 3 },
+        { "number": 18, "par": 3 }
+      ]
+    }
+  ]
+}
