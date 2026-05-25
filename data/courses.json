@@ -2,6 +2,199 @@
   "schemaVersion": 1,
   "courses": [
     {
+      "id": "boulder-oaks-golf-club",
+      "name": "Boulder Oaks Golf Club",
+      "aliases": [
+        "Boulder Oaks Golf Club"
+      ],
+      "location": {
+        "lat": 33.214954,
+        "lng": -117.10872
+      },
+      "holes": [
+        {
+          "number": 1,
+          "par": 4,
+          "yards": 395,
+          "strokeIndex": 2,
+          "greenAnchor": {
+            "lat": 33.215221,
+            "lng": -117.104468
+          }
+        },
+        {
+          "number": 2,
+          "par": 3,
+          "yards": 158,
+          "strokeIndex": 18,
+          "greenAnchor": {
+            "lat": 33.216363,
+            "lng": -117.103414
+          }
+        },
+        {
+          "number": 3,
+          "par": 4,
+          "yards": 291,
+          "strokeIndex": 10,
+          "greenAnchor": {
+            "lat": 33.2181,
+            "lng": -117.100962
+          }
+        },
+        {
+          "number": 4,
+          "par": 3,
+          "yards": 239,
+          "strokeIndex": 6,
+          "greenAnchor": {
+            "lat": 33.217792,
+            "lng": -117.099264
+          }
+        },
+        {
+          "number": 5,
+          "par": 4,
+          "yards": 300,
+          "strokeIndex": 12,
+          "greenAnchor": {
+            "lat": 33.217909,
+            "lng": -117.096201
+          }
+        },
+        {
+          "number": 6,
+          "par": 3,
+          "yards": 171,
+          "strokeIndex": 14,
+          "greenAnchor": {
+            "lat": 33.219879,
+            "lng": -117.096528
+          }
+        },
+        {
+          "number": 7,
+          "par": 4,
+          "yards": 303,
+          "strokeIndex": 8,
+          "greenAnchor": {
+            "lat": 33.220516,
+            "lng": -117.099516
+          }
+        },
+        {
+          "number": 8,
+          "par": 4,
+          "yards": 386,
+          "strokeIndex": 4,
+          "greenAnchor": {
+            "lat": 33.218095,
+            "lng": -117.098712
+          }
+        },
+        {
+          "number": 9,
+          "par": 3,
+          "yards": 166,
+          "strokeIndex": 16,
+          "greenAnchor": {
+            "lat": 33.218517,
+            "lng": -117.100962
+          }
+        },
+        {
+          "number": 10,
+          "par": 5,
+          "yards": 525,
+          "strokeIndex": 5,
+          "greenAnchor": {
+            "lat": 33.216495,
+            "lng": -117.104926
+          }
+        },
+        {
+          "number": 11,
+          "par": 5,
+          "yards": 469,
+          "strokeIndex": 11,
+          "greenAnchor": {
+            "lat": 33.214799,
+            "lng": -117.107764
+          }
+        },
+        {
+          "number": 12,
+          "par": 5,
+          "yards": 602,
+          "strokeIndex": 1,
+          "greenAnchor": {
+            "lat": 33.212322,
+            "lng": -117.103929
+          }
+        },
+        {
+          "number": 13,
+          "par": 3,
+          "yards": 216,
+          "strokeIndex": 9,
+          "greenAnchor": {
+            "lat": 33.212535,
+            "lng": -117.101434
+          }
+        },
+        {
+          "number": 14,
+          "par": 4,
+          "yards": 427,
+          "strokeIndex": 7,
+          "greenAnchor": {
+            "lat": 33.214974,
+            "lng": -117.097062
+          }
+        },
+        {
+          "number": 15,
+          "par": 3,
+          "yards": 155,
+          "strokeIndex": 17,
+          "greenAnchor": {
+            "lat": 33.217112,
+            "lng": -117.097379
+          }
+        },
+        {
+          "number": 16,
+          "par": 5,
+          "yards": 625,
+          "strokeIndex": 3,
+          "greenAnchor": {
+            "lat": 33.217119,
+            "lng": -117.099106
+          }
+        },
+        {
+          "number": 17,
+          "par": 4,
+          "yards": 308,
+          "strokeIndex": 15,
+          "greenAnchor": {
+            "lat": 33.216522,
+            "lng": -117.102732
+          }
+        },
+        {
+          "number": 18,
+          "par": 4,
+          "yards": 297,
+          "strokeIndex": 13,
+          "greenAnchor": {
+            "lat": 33.214153,
+            "lng": -117.104371
+          }
+        }
+      ]
+    },
+    {
       "id": "dos-osos",
       "name": "Dos Osos Golf Club",
       "aliases": [
@@ -10,26 +203,101 @@
         "Dos Osos",
         "Dos Osos at Eagle Crest"
       ],
-      "location": { "lat": 33.103, "lng": -116.99 },
+      "location": {
+        "lat": 33.103,
+        "lng": -116.99
+      },
       "holes": [
-        { "number": 1, "par": 5, "strokeIndex": 15 },
-        { "number": 2, "par": 4, "strokeIndex": 9 },
-        { "number": 3, "par": 4, "strokeIndex": 5 },
-        { "number": 4, "par": 4, "strokeIndex": 13 },
-        { "number": 5, "par": 3, "strokeIndex": 17 },
-        { "number": 6, "par": 5, "strokeIndex": 3 },
-        { "number": 7, "par": 3, "strokeIndex": 11 },
-        { "number": 8, "par": 4, "strokeIndex": 7 },
-        { "number": 9, "par": 4, "strokeIndex": 1 },
-        { "number": 10, "par": 4, "strokeIndex": 2 },
-        { "number": 11, "par": 3, "strokeIndex": 18 },
-        { "number": 12, "par": 5, "strokeIndex": 4 },
-        { "number": 13, "par": 4, "strokeIndex": 16 },
-        { "number": 14, "par": 5, "strokeIndex": 10 },
-        { "number": 15, "par": 4, "strokeIndex": 6 },
-        { "number": 16, "par": 4, "strokeIndex": 14 },
-        { "number": 17, "par": 3, "strokeIndex": 12 },
-        { "number": 18, "par": 4, "strokeIndex": 8 }
+        {
+          "number": 1,
+          "par": 5,
+          "strokeIndex": 15
+        },
+        {
+          "number": 2,
+          "par": 4,
+          "strokeIndex": 9
+        },
+        {
+          "number": 3,
+          "par": 4,
+          "strokeIndex": 5
+        },
+        {
+          "number": 4,
+          "par": 4,
+          "strokeIndex": 13
+        },
+        {
+          "number": 5,
+          "par": 3,
+          "strokeIndex": 17
+        },
+        {
+          "number": 6,
+          "par": 5,
+          "strokeIndex": 3
+        },
+        {
+          "number": 7,
+          "par": 3,
+          "strokeIndex": 11
+        },
+        {
+          "number": 8,
+          "par": 4,
+          "strokeIndex": 7
+        },
+        {
+          "number": 9,
+          "par": 4,
+          "strokeIndex": 1
+        },
+        {
+          "number": 10,
+          "par": 4,
+          "strokeIndex": 2
+        },
+        {
+          "number": 11,
+          "par": 3,
+          "strokeIndex": 18
+        },
+        {
+          "number": 12,
+          "par": 5,
+          "strokeIndex": 4
+        },
+        {
+          "number": 13,
+          "par": 4,
+          "strokeIndex": 16
+        },
+        {
+          "number": 14,
+          "par": 5,
+          "strokeIndex": 10
+        },
+        {
+          "number": 15,
+          "par": 4,
+          "strokeIndex": 6
+        },
+        {
+          "number": 16,
+          "par": 4,
+          "strokeIndex": 14
+        },
+        {
+          "number": 17,
+          "par": 3,
+          "strokeIndex": 12
+        },
+        {
+          "number": 18,
+          "par": 4,
+          "strokeIndex": 8
+        }
       ]
     },
     {
@@ -40,26 +308,83 @@
         "Lawrence Welk Resort",
         "The Oaks Course"
       ],
-      "location": { "lat": 33.2436, "lng": -117.0863 },
+      "location": {
+        "lat": 33.2436,
+        "lng": -117.0863
+      },
       "holes": [
-        { "number": 1, "par": 3 },
-        { "number": 2, "par": 3 },
-        { "number": 3, "par": 3 },
-        { "number": 4, "par": 3 },
-        { "number": 5, "par": 3 },
-        { "number": 6, "par": 3 },
-        { "number": 7, "par": 3 },
-        { "number": 8, "par": 3 },
-        { "number": 9, "par": 3 },
-        { "number": 10, "par": 3 },
-        { "number": 11, "par": 3 },
-        { "number": 12, "par": 3 },
-        { "number": 13, "par": 3 },
-        { "number": 14, "par": 3 },
-        { "number": 15, "par": 3 },
-        { "number": 16, "par": 3 },
-        { "number": 17, "par": 3 },
-        { "number": 18, "par": 3 }
+        {
+          "number": 1,
+          "par": 3
+        },
+        {
+          "number": 2,
+          "par": 3
+        },
+        {
+          "number": 3,
+          "par": 3
+        },
+        {
+          "number": 4,
+          "par": 3
+        },
+        {
+          "number": 5,
+          "par": 3
+        },
+        {
+          "number": 6,
+          "par": 3
+        },
+        {
+          "number": 7,
+          "par": 3
+        },
+        {
+          "number": 8,
+          "par": 3
+        },
+        {
+          "number": 9,
+          "par": 3
+        },
+        {
+          "number": 10,
+          "par": 3
+        },
+        {
+          "number": 11,
+          "par": 3
+        },
+        {
+          "number": 12,
+          "par": 3
+        },
+        {
+          "number": 13,
+          "par": 3
+        },
+        {
+          "number": 14,
+          "par": 3
+        },
+        {
+          "number": 15,
+          "par": 3
+        },
+        {
+          "number": 16,
+          "par": 3
+        },
+        {
+          "number": 17,
+          "par": 3
+        },
+        {
+          "number": 18,
+          "par": 3
+        }
       ]
     }
   ]
