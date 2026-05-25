@@ -71,7 +71,9 @@ switch (cmd) {
       headers: { Authorization: `Key ${key}` },
     })
     if (!res.ok) fail(`GolfCourseAPI ${res.status}`)
-    const j = (await res.json()) as any
+    const body = (await res.json()) as any
+    // /v1/courses/:id wraps the course in { course: … }; /v1/search returns it flat.
+    const j = body?.course ?? body
     const tee = j?.tees?.male?.[0] ?? j?.tees?.female?.[0]
     if (!tee?.holes?.length) fail('no hole data in API response — add manually & validate')
     const course: CuratedCourse = {
