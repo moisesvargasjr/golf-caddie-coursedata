@@ -544,6 +544,201 @@
           }
         }
       ]
+    },
+    {
+      "id": "town-of-wallkill-golf-club",
+      "name": "Town of Wallkill Golf Club",
+      "aliases": [
+        "Town of Wallkill",
+        "Town of Wallkill GC",
+        "Wallkill Golf Club"
+      ],
+      "location": {
+        "lat": 41.509134,
+        "lng": -74.403206
+      },
+      "holes": [
+        {
+          "number": 1,
+          "par": 4,
+          "yards": 291,
+          "strokeIndex": 15,
+          "greenAnchor": {
+            "lat": 41.509505,
+            "lng": -74.403561
+          }
+        },
+        {
+          "number": 2,
+          "par": 4,
+          "yards": 412,
+          "strokeIndex": 3,
+          "greenAnchor": {
+            "lat": 41.510895,
+            "lng": -74.400069
+          }
+        },
+        {
+          "number": 3,
+          "par": 3,
+          "yards": 163,
+          "strokeIndex": 13,
+          "greenAnchor": {
+            "lat": 41.512458,
+            "lng": -74.399757
+          }
+        },
+        {
+          "number": 4,
+          "par": 4,
+          "yards": 384,
+          "strokeIndex": 7,
+          "greenAnchor": {
+            "lat": 41.51484,
+            "lng": -74.396608
+          }
+        },
+        {
+          "number": 5,
+          "par": 5,
+          "yards": 483,
+          "strokeIndex": 9,
+          "greenAnchor": {
+            "lat": 41.511417,
+            "lng": -74.397199
+          }
+        },
+        {
+          "number": 6,
+          "par": 4,
+          "yards": 340,
+          "strokeIndex": 11,
+          "greenAnchor": {
+            "lat": 41.513583,
+            "lng": -74.395192
+          }
+        },
+        {
+          "number": 7,
+          "par": 3,
+          "yards": 152,
+          "strokeIndex": 17,
+          "greenAnchor": {
+            "lat": 41.511924,
+            "lng": -74.395477
+          }
+        },
+        {
+          "number": 8,
+          "par": 5,
+          "yards": 550,
+          "strokeIndex": 5,
+          "greenAnchor": {
+            "lat": 41.508557,
+            "lng": -74.401308
+          }
+        },
+        {
+          "number": 9,
+          "par": 4,
+          "yards": 402,
+          "strokeIndex": 1,
+          "greenAnchor": {
+            "lat": 41.507673,
+            "lng": -74.405116
+          }
+        },
+        {
+          "number": 10,
+          "par": 4,
+          "yards": 300,
+          "strokeIndex": 12,
+          "greenAnchor": {
+            "lat": 41.506183,
+            "lng": -74.404575
+          }
+        },
+        {
+          "number": 11,
+          "par": 3,
+          "yards": 126,
+          "strokeIndex": 16,
+          "greenAnchor": {
+            "lat": 41.505536,
+            "lng": -74.40245
+          }
+        },
+        {
+          "number": 12,
+          "par": 5,
+          "yards": 451,
+          "strokeIndex": 18,
+          "greenAnchor": {
+            "lat": 41.507272,
+            "lng": -74.398625
+          }
+        },
+        {
+          "number": 13,
+          "par": 4,
+          "yards": 353,
+          "strokeIndex": 2,
+          "greenAnchor": {
+            "lat": 41.510136,
+            "lng": -74.396212
+          }
+        },
+        {
+          "number": 14,
+          "par": 4,
+          "yards": 311,
+          "strokeIndex": 10,
+          "greenAnchor": {
+            "lat": 41.513647,
+            "lng": -74.394141
+          }
+        },
+        {
+          "number": 15,
+          "par": 3,
+          "yards": 140,
+          "strokeIndex": 14,
+          "greenAnchor": {
+            "lat": 41.515486,
+            "lng": -74.395997
+          }
+        },
+        {
+          "number": 16,
+          "par": 5,
+          "yards": 562,
+          "strokeIndex": 4,
+          "greenAnchor": {
+            "lat": 41.513856,
+            "lng": -74.40164
+          }
+        },
+        {
+          "number": 17,
+          "par": 4,
+          "yards": 369,
+          "strokeIndex": 6,
+          "greenAnchor": {
+            "lat": 41.511241,
+            "lng": -74.402123
+          }
+        },
+        {
+          "number": 18,
+          "par": 4,
+          "yards": 323,
+          "strokeIndex": 8,
+          "greenAnchor": {
+            "lat": 41.509212,
+            "lng": -74.406452
+          }
+        }
+      ]
     }
   ]
 }
