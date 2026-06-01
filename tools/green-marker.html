@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Green Marker — GolfCaddie course curation</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<style>
+  :root { --ink:#1d2b1f; --paper:#f4f1e8; --line:#d9d2c0; --accent:#2f7d3a; --warn:#b6451f; }
+  * { box-sizing: border-box; }
+  html, body { margin:0; height:100%; font-family: ui-sans-serif, -apple-system, "Helvetica Neue", Arial, sans-serif; color:var(--ink); }
+  #app { display:grid; grid-template-columns: 340px 1fr; height:100%; }
+  #side { border-right:1px solid var(--line); background:var(--paper); display:flex; flex-direction:column; min-height:0; }
+  #head { padding:12px 14px; border-bottom:1px solid var(--line); }
+  #head h1 { font-size:15px; margin:0 0 2px; letter-spacing:.2px; }
+  #head .sub { font-size:12px; color:#6a6655; }
+  #holes { overflow:auto; flex:1; min-height:0; }
+  .hole { display:flex; align-items:center; gap:10px; padding:9px 14px; border-bottom:1px solid var(--line); cursor:pointer; }
+  .hole:hover { background:#ece7d6; }
+  .hole.active { background:#e3eede; box-shadow: inset 3px 0 0 var(--accent); }
+  .hole .n { font-weight:700; width:22px; text-align:right; font-variant-numeric: tabular-nums; }
+  .hole .meta { font-size:12px; color:#6a6655; }
+  .hole .par { font-size:11px; background:#e7e1cf; border:1px solid var(--line); border-radius:10px; padding:1px 7px; }
+  .hole .coord { margin-left:auto; font-size:11px; font-variant-numeric: tabular-nums; color:#3a3a2e; text-align:right; }
+  .hole .dot { width:9px; height:9px; border-radius:50%; background:#cdc6b4; flex:none; }
+  .hole.set .dot { background:var(--accent); }
+  #foot { border-top:1px solid var(--line); padding:10px 14px; display:flex; flex-direction:column; gap:8px; }
+  .row { display:flex; gap:8px; }
+  button { font:inherit; font-size:13px; padding:7px 10px; border:1px solid var(--line); background:#fff; border-radius:7px; cursor:pointer; }
+  button.primary { background:var(--accent); color:#fff; border-color:var(--accent); font-weight:600; }
+  button.primary:disabled { opacity:.45; cursor:not-allowed; }
+  button.ghost { background:transparent; }
+  #status { font-size:12px; color:#6a6655; min-height:16px; }
+  #status.ok { color:var(--accent); } #status.err { color:var(--warn); }
+  #count { font-variant-numeric: tabular-nums; font-weight:600; }
+  #map { height:100%; }
+  .leaflet-container { background:#222; }
+  .pin { font-weight:700; color:#fff; text-align:center; line-height:24px; width:26px; height:26px; border-radius:50% 50% 50% 0; transform: rotate(-45deg); border:2px solid #fff; box-shadow:0 1px 4px rgba(0,0,0,.5); }
+  .pin span { display:inline-block; transform: rotate(45deg); font-size:12px; }
+  .pin.set { background:var(--accent); } .pin.active { background:var(--warn); }
+  .hint { position:absolute; z-index:500; top:10px; left:50%; transform:translateX(-50%); background:rgba(29,43,31,.88); color:#fff; padding:6px 12px; border-radius:20px; font-size:12px; pointer-events:none; }
+</style>
+</head>
+<body>
+<div id="app">
+  <aside id="side">
+    <div id="head">
+      <h1 id="title">Loading…</h1>
+      <div class="sub" id="subtitle"></div>
+    </div>
+    <div id="holes"></div>
+    <div id="foot">
+      <div class="row" style="justify-content:space-between; align-items:center;">
+        <span class="sub"><span id="count">0</span> / <span id="total">18</span> greens marked</span>
+        <button class="ghost" id="recenter" title="Fit all marked greens / course">Recenter</button>
+      </div>
+      <div class="row">
+        <button id="prev">‹ Prev</button>
+        <button id="next">Next ›</button>
+        <button class="ghost" id="clear" title="Clear this hole's pin">Clear</button>
+      </div>
+      <button class="primary" id="save" disabled>Save anchors → server</button>
+      <div id="status">Click a hole, then click its green on the map.</div>
+    </div>
+  </aside>
+  <div style="position:relative;">
+    <div class="hint" id="hint">Select a hole, then click the center of its green.</div>
+    <div id="map"></div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const COURSE_ID = new URLSearchParams(location.search).get("course");
+let course = null;            // {id,name,location,holes:[{number,par,yards,greenAnchor?}]}
+let active = 1;               // active hole number
+const marks = new Map();      // holeNumber -> {lat,lng}
+const markers = new Map();    // holeNumber -> L.marker
+let map;
+
+const $ = (s) => document.querySelector(s);
+const fmt = (n) => Number(n).toFixed(6);
+
+function pinIcon(num, state) {
+  return L.divIcon({ className:"", html:`<div class="pin ${state}"><span>${num}</span></div>`, iconSize:[26,26], iconAnchor:[13,26] });
+}
+
+async function boot() {
+  if (!COURSE_ID) { $("#title").textContent = "No ?course= given"; return; }
+  const res = await fetch(`/api/course?id=${encodeURIComponent(COURSE_ID)}`);
+  if (!res.ok) { $("#title").textContent = "Course not found: " + COURSE_ID; return; }
+  course = await res.json();
+  $("#title").textContent = course.name;
+  $("#subtitle").textContent = `${course.id} · ${course.holes.length} holes · par ${course.holes.reduce((s,h)=>s+h.par,0)}`;
+  $("#total").textContent = course.holes.length;
+
+  map = L.map("map", { zoomControl:true }).setView([course.location.lat, course.location.lng], 16);
+  L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+    { maxZoom:21, maxNativeZoom:19, attribution:"Imagery © Esri" }).addTo(map);
+  L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer/tile/{z}/{y}/{x}",
+    { maxZoom:21, maxNativeZoom:19, opacity:.9 }).addTo(map);
+
+  // seed any greenAnchors already present in courses.json
+  for (const h of course.holes) {
+    if (h.greenAnchor) setMark(h.number, h.greenAnchor.lat, h.greenAnchor.lng, false);
+  }
+  map.on("click", (e) => setMark(active, e.latlng.lat, e.latlng.lng, true));
+
+  renderHoles();
+  selectHole(1);
+  recenter();
+}
+
+function setMark(num, lat, lng, advance) {
+  marks.set(num, { lat, lng });
+  let m = markers.get(num);
+  if (m) { m.setLatLng([lat,lng]); }
+  else {
+    m = L.marker([lat,lng], { draggable:true, icon: pinIcon(num, num===active?"active":"set") }).addTo(map);
+    m.on("click", () => selectHole(num));
+    m.on("dragend", () => { const p = m.getLatLng(); marks.set(num, {lat:p.lat, lng:p.lng}); renderHoles(); });
+    markers.set(num, m);
+  }
+  refreshIcons();
+  renderHoles();
+  if (advance) {
+    const nextUnset = course.holes.map(h=>h.number).find(n => n>num && !marks.has(n));
+    if (nextUnset) selectHole(nextUnset);
+  }
+}
+
+function refreshIcons() {
+  for (const [num, m] of markers) m.setIcon(pinIcon(num, num===active?"active":"set"));
+}
+
+function selectHole(num) {
+  active = num;
+  refreshIcons();
+  renderHoles();
+  const m = marks.get(num);
+  if (m) map.panTo([m.lat, m.lng]);
+  $("#hint").textContent = `Hole ${num} — click the center of its green` + (marks.has(num) ? " (or drag the pin)" : "");
+}
+
+function renderHoles() {
+  const wrap = $("#holes");
+  wrap.innerHTML = "";
+  for (const h of course.holes) {
+    const m = marks.get(h.number);
+    const el = document.createElement("div");
+    el.className = "hole" + (h.number===active?" active":"") + (m?" set":"");
+    el.innerHTML = `<span class="dot"></span><span class="n">${h.number}</span>`
+      + `<span class="par">par ${h.par}</span>`
+      + `<span class="meta">${h.yards?h.yards+" yd":""}</span>`
+      + `<span class="coord">${m? fmt(m.lat)+", "+fmt(m.lng) : "—"}</span>`;
+    el.onclick = () => selectHole(h.number);
+    wrap.appendChild(el);
+  }
+  $("#count").textContent = marks.size;
+  $("#save").disabled = marks.size === 0;
+}
+
+function recenter() {
+  if (marks.size) {
+    const b = L.latLngBounds([...marks.values()].map(m=>[m.lat,m.lng]));
+    map.fitBounds(b.pad(0.25));
+  } else map.setView([course.location.lat, course.location.lng], 16);
+}
+
+$("#prev").onclick = () => selectHole(active>1?active-1:course.holes.length);
+$("#next").onclick = () => selectHole(active<course.holes.length?active+1:1);
+$("#recenter").onclick = recenter;
+$("#clear").onclick = () => {
+  marks.delete(active);
+  const m = markers.get(active); if (m){ map.removeLayer(m); markers.delete(active); }
+  renderHoles();
+};
+
+$("#save").onclick = async () => {
+  const anchors = [...marks.entries()].sort((a,b)=>a[0]-b[0])
+    .map(([number, p]) => ({ holeNumber:number, greenAnchor:{ lat:+fmt(p.lat), lng:+fmt(p.lng) } }));
+  const payload = { courseId: course.id, anchors };
+  const s = $("#status");
+  s.className = ""; s.textContent = "Saving…";
+  try {
+    const res = await fetch(`/api/save?id=${encodeURIComponent(course.id)}`, {
+      method:"POST", headers:{ "content-type":"application/json" }, body: JSON.stringify(payload, null, 2) });
+    const j = await res.json();
+    if (!res.ok) throw new Error(j.error || res.status);
+    s.className = "ok"; s.textContent = `✓ Saved ${anchors.length} anchors → ${j.path}`;
+  } catch (err) { s.className = "err"; s.textContent = "✗ " + err.message; }
+};
+
+boot();
+</script>
+</body>
+</html>

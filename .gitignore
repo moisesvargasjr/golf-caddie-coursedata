@@ -4,3 +4,6 @@ node_modules/
 
 # local Claude Code settings
 .claude/settings.local.json
+
+# curation-time anchor exports (intermediate; merged into courses.json)
+tools/exports/
