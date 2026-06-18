@@ -7,3 +7,6 @@ node_modules/
 
 # curation-time anchor exports (intermediate; merged into courses.json)
 tools/exports/
+
+# local GolfCourseAPI key for the curation server
+tools/.api-key

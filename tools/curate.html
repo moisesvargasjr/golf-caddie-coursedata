@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GolfCaddie — Course Curation</title>
+<style>
+  :root { --ink:#1d2b1f; --paper:#f4f1e8; --line:#d9d2c0; --accent:#2f7d3a; --warn:#b6451f; --muted:#6a6655; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: ui-sans-serif, -apple-system, "Helvetica Neue", Arial, sans-serif; color:var(--ink); background:var(--paper); }
+  .wrap { max-width:760px; margin:0 auto; padding:20px 18px 60px; }
+  h1 { font-size:21px; margin:0 0 2px; letter-spacing:.2px; }
+  .sub { color:var(--muted); font-size:13px; margin-bottom:20px; }
+  h2 { font-size:13px; text-transform:uppercase; letter-spacing:1px; color:var(--muted); margin:26px 0 10px; border-bottom:1px solid var(--line); padding-bottom:6px; }
+  input, button { font:inherit; }
+  input[type=text], input[type=number] { padding:9px 11px; border:1px solid var(--line); border-radius:8px; background:#fff; width:100%; }
+  button { padding:8px 13px; border:1px solid var(--line); background:#fff; border-radius:8px; cursor:pointer; }
+  button.primary { background:var(--accent); color:#fff; border-color:var(--accent); font-weight:600; }
+  button:disabled { opacity:.5; cursor:not-allowed; }
+  .row { display:flex; gap:8px; align-items:center; }
+  .card { border:1px solid var(--line); border-radius:10px; background:#fff; padding:11px 13px; margin-bottom:8px; display:flex; align-items:center; gap:12px; }
+  .card .name { font-weight:600; }
+  .card .meta { font-size:12px; color:var(--muted); }
+  .card .spacer { margin-left:auto; }
+  .badge { font-size:11px; font-weight:700; padding:2px 8px; border-radius:10px; border:1px solid var(--line); white-space:nowrap; }
+  .badge.full { background:#e3eede; color:var(--accent); border-color:var(--accent); }
+  .badge.none { background:#f6e9e2; color:var(--warn); border-color:#e3c4b4; }
+  a.btnlink { text-decoration:none; }
+  .note { font-size:12px; color:var(--muted); background:#efe9da; border:1px solid var(--line); border-radius:8px; padding:9px 11px; margin:8px 0; }
+  .note code { background:#fff; padding:1px 5px; border-radius:4px; border:1px solid var(--line); }
+  #status { font-size:13px; min-height:18px; margin-top:8px; }
+  #status.ok { color:var(--accent); } #status.err { color:var(--warn); }
+  details { margin-top:8px; } summary { cursor:pointer; font-size:13px; color:var(--muted); }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .muted { color:var(--muted); font-size:12px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Course Curation</h1>
+  <div class="sub">Search a course, import it, mark green centers, and publish so the app re-syncs.</div>
+
+  <h2>Search</h2>
+  <div class="row">
+    <input type="text" id="q" placeholder="Course or club name (≥3 letters)…" autocomplete="off" />
+    <button id="searchBtn" class="primary">Search</button>
+  </div>
+  <div id="searchResults"></div>
+
+  <details id="manualWrap">
+    <summary>No result / no API key? Add a course manually</summary>
+    <div class="card" style="flex-direction:column; align-items:stretch; gap:8px; margin-top:8px;">
+      <input type="text" id="mName" placeholder="Course name" />
+      <div class="grid2">
+        <input type="number" id="mLat" step="0.000001" placeholder="Center latitude" />
+        <input type="number" id="mLng" step="0.000001" placeholder="Center longitude" />
+      </div>
+      <input type="text" id="mPars" placeholder="Pars, space-separated (e.g. 4 4 3 5 4 …) — or '18x3'" />
+      <div class="row"><button id="mAdd" class="primary">Add course</button>
+        <span class="muted">Pars can be rough; fix later. Greens you'll mark next.</span></div>
+    </div>
+  </details>
+
+  <h2>Curated courses</h2>
+  <div id="courseList"></div>
+
+  <h2>Publish</h2>
+  <div class="muted">Commits &amp; pushes <code>data/courses.json</code>. Your phone re-syncs on next launch (after ~5&nbsp;min CDN cache, and if &gt;1&nbsp;h since its last sync).</div>
+  <div class="row" style="margin-top:8px;"><button id="publishBtn">Publish to app →</button></div>
+
+  <div id="status"></div>
+</div>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const status = (msg, cls='') => { const s=$('#status'); s.textContent=msg; s.className=cls; };
+async function jget(u){ const r=await fetch(u); return { ok:r.ok, status:r.status, body: await r.json().catch(()=>({})) }; }
+async function jpost(u,b){ const r=await fetch(u,{method:'POST',headers:{'content-type':'text/plain'},body:JSON.stringify(b||{})}); return { ok:r.ok, status:r.status, body: await r.json().catch(()=>({})) }; }
+
+// ---- Search ----
+async function doSearch(){
+  const q=$('#q').value.trim();
+  if(q.length<3){ status('Type at least 3 letters.', 'err'); return; }
+  status('Searching…');
+  const { body } = await jget('/api/search?q='+encodeURIComponent(q));
+  const box=$('#searchResults'); box.innerHTML='';
+  if(body.error==='no_api_key'){
+    box.innerHTML='<div class="note">Search needs a free <b>GolfCourseAPI</b> key. On the server: <code>echo YOUR_KEY &gt; tools/.api-key</code> (or set <code>GOLF_COURSE_API_KEY</code>) and restart. Until then, use <b>Add a course manually</b> below.</div>';
+    $('#manualWrap').open=true; status(''); return;
+  }
+  const rs=body.results||[];
+  if(!rs.length){ status('No matches.', ''); return; }
+  status('');
+  for(const c of rs){
+    const div=document.createElement('div'); div.className='card';
+    div.innerHTML=`<div><div class="name">${esc(c.name||'')}</div>
+      <div class="meta">${esc([c.club, c.city, c.state].filter(Boolean).join(' · '))}${c.holes?` · ${c.holes} holes`:''}</div></div>
+      <div class="spacer"></div>`;
+    const b=document.createElement('button'); b.className='primary'; b.textContent='Import';
+    b.onclick=async()=>{ b.disabled=true; status('Importing…');
+      const { ok, body } = await jpost('/api/import',{ apiId:c.apiId });
+      if(ok){ status(`✓ Imported "${body.name}" (${body.holes} holes)`, 'ok'); loadCourses(); }
+      else { status('Import failed: '+(body.error||''), 'err'); b.disabled=false; } };
+    div.appendChild(b); box.appendChild(div);
+  }
+}
+
+// ---- Manual add ----
+function parsePars(s){
+  s=s.trim().toLowerCase();
+  const m=s.match(/^(\d+)\s*x\s*(\d+)$/); // e.g. 18x3
+  if(m){ return Array.from({length:+m[1]},()=>+m[2]); }
+  return s.split(/[\s,]+/).filter(Boolean).map(Number).filter(n=>n>=3&&n<=6);
+}
+async function doManualAdd(){
+  const name=$('#mName').value.trim(), lat=parseFloat($('#mLat').value), lng=parseFloat($('#mLng').value);
+  const pars=parsePars($('#mPars').value);
+  if(!name||isNaN(lat)||isNaN(lng)||!pars.length){ status('Need name, lat, lng, and pars.', 'err'); return; }
+  status('Adding…');
+  const { ok, body } = await jpost('/api/add-manual',{ name, lat, lng, pars });
+  if(ok){ status(`✓ Added "${body.name}" (${body.holes} holes) — mark greens below`, 'ok'); loadCourses(); }
+  else status('Add failed: '+(body.error||''), 'err');
+}
+
+// ---- Curated list ----
+async function loadCourses(){
+  const { body } = await jget('/api/courses');
+  const box=$('#courseList'); box.innerHTML='';
+  for(const c of (body.courses||[])){
+    const full=c.greens===c.holes && c.holes>0;
+    const div=document.createElement('div'); div.className='card';
+    div.innerHTML=`<div><div class="name">${esc(c.name)}</div>
+      <div class="meta">${c.holes} holes · par ${c.par}</div></div>
+      <div class="spacer"></div>
+      <span class="badge ${full?'full':(c.greens?'':'none')}">greens ${c.greens}/${c.holes}</span>
+      <a class="btnlink" href="/green-marker.html?course=${encodeURIComponent(c.id)}"><button>Mark greens →</button></a>`;
+    box.appendChild(div);
+  }
+}
+
+async function doPublish(){
+  $('#publishBtn').disabled=true; status('Publishing…');
+  const { ok, body } = await jpost('/api/publish',{});
+  if(ok){ status('✓ '+(body.note||('Published. '+(body.output||''))), 'ok'); }
+  else status('Publish failed: '+(body.error||''), 'err');
+  $('#publishBtn').disabled=false;
+}
+
+function esc(s){ return String(s).replace(/[&<>"]/g,(c)=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+$('#searchBtn').onclick=doSearch;
+$('#q').addEventListener('keydown',(e)=>{ if(e.key==='Enter') doSearch(); });
+$('#mAdd').onclick=doManualAdd;
+$('#publishBtn').onclick=doPublish;
+loadCourses();
+</script>
+</body>
+</html>
