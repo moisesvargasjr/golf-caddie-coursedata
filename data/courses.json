@@ -315,75 +315,147 @@
       "holes": [
         {
           "number": 1,
-          "par": 3
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.229795,
+            "lng": -117.14198
+          }
         },
         {
           "number": 2,
-          "par": 3
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.228713,
+            "lng": -117.141834
+          }
         },
         {
           "number": 3,
-          "par": 3
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.227961,
+            "lng": -117.142051
+          }
         },
         {
           "number": 4,
-          "par": 3
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.228566,
+            "lng": -117.14274
+          }
         },
         {
           "number": 5,
-          "par": 3
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.228901,
+            "lng": -117.143507
+          }
         },
         {
           "number": 6,
-          "par": 3
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.229154,
+            "lng": -117.142299
+          }
         },
         {
           "number": 7,
-          "par": 3
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.22982,
+            "lng": -117.142901
+          }
         },
         {
           "number": 8,
-          "par": 3
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.229255,
+            "lng": -117.143326
+          }
         },
         {
           "number": 9,
-          "par": 3
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.230531,
+            "lng": -117.143277
+          }
         },
         {
           "number": 10,
-          "par": 3
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.230003,
+            "lng": -117.143434
+          }
         },
         {
           "number": 11,
-          "par": 3
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.229646,
+            "lng": -117.143603
+          }
         },
         {
           "number": 12,
-          "par": 3
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.230407,
+            "lng": -117.143973
+          }
         },
         {
           "number": 13,
-          "par": 3
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.231255,
+            "lng": -117.144307
+          }
         },
         {
           "number": 14,
-          "par": 3
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.232385,
+            "lng": -117.144427
+          }
         },
         {
           "number": 15,
-          "par": 3
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.231563,
+            "lng": -117.144156
+          }
         },
         {
           "number": 16,
-          "par": 3
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.230796,
+            "lng": -117.143904
+          }
         },
         {
           "number": 17,
-          "par": 3
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.230101,
+            "lng": -117.142764
+          }
         },
         {
           "number": 18,
-          "par": 3
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.23067,
+            "lng": -117.142626
+          }
         }
       ]
     },
