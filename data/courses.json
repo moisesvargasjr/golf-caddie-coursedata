@@ -301,6 +301,161 @@
       ]
     },
     {
+      "id": "emerald-isle-golf-course",
+      "name": "Emerald Isle Golf Course",
+      "aliases": [],
+      "location": {
+        "lat": 33.21288,
+        "lng": -117.33191
+      },
+      "holes": [
+        {
+          "number": 1,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.213171,
+            "lng": -117.332677
+          }
+        },
+        {
+          "number": 2,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.212143,
+            "lng": -117.33285
+          }
+        },
+        {
+          "number": 3,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.212298,
+            "lng": -117.330967
+          }
+        },
+        {
+          "number": 4,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.212212,
+            "lng": -117.329618
+          }
+        },
+        {
+          "number": 5,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.212235,
+            "lng": -117.327802
+          }
+        },
+        {
+          "number": 6,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.212319,
+            "lng": -117.326037
+          }
+        },
+        {
+          "number": 7,
+          "par": 4,
+          "greenAnchor": {
+            "lat": 33.21249,
+            "lng": -117.323433
+          }
+        },
+        {
+          "number": 8,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.213288,
+            "lng": -117.322796
+          }
+        },
+        {
+          "number": 9,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.212925,
+            "lng": -117.324363
+          }
+        },
+        {
+          "number": 10,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.213433,
+            "lng": -117.323221
+          }
+        },
+        {
+          "number": 11,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.213798,
+            "lng": -117.324241
+          }
+        },
+        {
+          "number": 12,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.212788,
+            "lng": -117.325116
+          }
+        },
+        {
+          "number": 13,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.212585,
+            "lng": -117.326382
+          }
+        },
+        {
+          "number": 14,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.212628,
+            "lng": -117.328216
+          }
+        },
+        {
+          "number": 15,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.212412,
+            "lng": -117.332243
+          }
+        },
+        {
+          "number": 16,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.212985,
+            "lng": -117.33111
+          }
+        },
+        {
+          "number": 17,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.213374,
+            "lng": -117.331902
+          }
+        },
+        {
+          "number": 18,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.214441,
+            "lng": -117.331902
+          }
+        }
+      ]
+    },
+    {
       "id": "oaks-at-the-welk",
       "name": "The Oaks at the Welk",
       "aliases": [
