@@ -33,6 +33,7 @@
   details { margin-top:8px; } summary { cursor:pointer; font-size:13px; color:var(--muted); }
   .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
   .muted { color:var(--muted); font-size:12px; }
+  .ok-note { color:var(--accent); } .warn-note { color:var(--warn); }
 </style>
 </head>
 <body>
@@ -66,7 +67,13 @@
 
   <h2>Publish</h2>
   <div class="muted">Commits &amp; pushes <code>data/courses.json</code>. Your phone re-syncs on next launch (after ~5&nbsp;min CDN cache, and if &gt;1&nbsp;h since its last sync).</div>
-  <div class="row" style="margin-top:8px;"><button id="publishBtn">Publish to app →</button></div>
+  <div id="completeness" class="muted" style="margin-top:8px;"></div>
+  <div class="row" style="margin-top:8px;">
+    <button id="publishBtn">Publish to app →</button>
+    <label class="muted" style="display:flex; align-items:center; gap:6px;">
+      <input type="checkbox" id="overrideChk" style="width:auto;" /> Publish even if tees/greens are incomplete
+    </label>
+  </div>
 
   <div id="status"></div>
 </div>
@@ -123,27 +130,46 @@ async function doManualAdd(){
 }
 
 // ---- Curated list ----
+let catalogComplete=false;
 async function loadCourses(){
   const { body } = await jget('/api/courses');
   const box=$('#courseList'); box.innerHTML='';
-  for(const c of (body.courses||[])){
-    const full=c.greens===c.holes && c.holes>0;
+  const courses=body.courses||[];
+  for(const c of courses){
+    const tees=c.tees??0;
+    const gFull=c.greens===c.holes && c.holes>0;
+    const tFull=tees===c.holes && c.holes>0;
     const div=document.createElement('div'); div.className='card';
     div.innerHTML=`<div><div class="name">${esc(c.name)}</div>
       <div class="meta">${c.holes} holes · par ${c.par}</div></div>
       <div class="spacer"></div>
-      <span class="badge ${full?'full':(c.greens?'':'none')}">greens ${c.greens}/${c.holes}</span>
-      <a class="btnlink" href="/green-marker.html?course=${encodeURIComponent(c.id)}"><button>Mark greens →</button></a>`;
+      <span class="badge ${tFull?'full':(tees?'':'none')}">tees ${tees}/${c.holes}</span>
+      <span class="badge ${gFull?'full':(c.greens?'':'none')}">greens ${c.greens}/${c.holes}</span>
+      <a class="btnlink" href="/green-marker.html?course=${encodeURIComponent(c.id)}"><button>Mark tees &amp; greens →</button></a>`;
     box.appendChild(div);
   }
+  catalogComplete = courses.length>0 && courses.every(c => c.greens===c.holes && (c.tees??0)===c.holes && c.holes>0);
+  updatePublishGate();
+}
+
+// Publish is gated on completeness (par+tee+green for every hole); the override
+// checkbox ships an incomplete catalog anyway (e.g. greenAnchor-only courses).
+function updatePublishGate(){
+  const override=$('#overrideChk').checked;
+  $('#publishBtn').disabled = !(catalogComplete || override);
+  $('#completeness').textContent = catalogComplete
+    ? '✓ All courses complete (par · tee · green) — ready to publish.'
+    : '⚠ Some courses are missing tee or green anchors. Finish them, or tick override to publish anyway.';
+  $('#completeness').className = catalogComplete ? 'muted ok-note' : 'muted warn-note';
 }
 
 async function doPublish(){
   $('#publishBtn').disabled=true; status('Publishing…');
-  const { ok, body } = await jpost('/api/publish',{});
+  const { ok, status:code, body } = await jpost('/api/publish',{ override: $('#overrideChk').checked });
   if(ok){ status('✓ '+(body.note||('Published. '+(body.output||''))), 'ok'); }
+  else if(code===409){ status(`✗ ${body.note||'Catalog incomplete.'} (tick override to publish anyway)`, 'err'); }
   else status('Publish failed: '+(body.error||''), 'err');
-  $('#publishBtn').disabled=false;
+  updatePublishGate();
 }
 
 function esc(s){ return String(s).replace(/[&<>"]/g,(c)=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
@@ -152,6 +178,7 @@ $('#searchBtn').onclick=doSearch;
 $('#q').addEventListener('keydown',(e)=>{ if(e.key==='Enter') doSearch(); });
 $('#mAdd').onclick=doManualAdd;
 $('#publishBtn').onclick=doPublish;
+$('#overrideChk').onchange=updatePublishGate;
 loadCourses();
 </script>
 </body>

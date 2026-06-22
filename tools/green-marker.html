@@ -6,7 +6,7 @@
 <title>Green Marker — GolfCaddie course curation</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <style>
-  :root { --ink:#1d2b1f; --paper:#f4f1e8; --line:#d9d2c0; --accent:#2f7d3a; --warn:#b6451f; }
+  :root { --ink:#1d2b1f; --paper:#f4f1e8; --line:#d9d2c0; --accent:#2f7d3a; --warn:#b6451f; --tee:#2b5fb0; }
   * { box-sizing: border-box; }
   html, body { margin:0; height:100%; font-family: ui-sans-serif, -apple-system, "Helvetica Neue", Arial, sans-serif; color:var(--ink); }
   #app { display:grid; grid-template-columns: 340px 1fr; height:100%; }
@@ -24,20 +24,25 @@
   .hole .coord { margin-left:auto; font-size:11px; font-variant-numeric: tabular-nums; color:#3a3a2e; text-align:right; }
   .hole .dot { width:9px; height:9px; border-radius:50%; background:#cdc6b4; flex:none; }
   .hole.set .dot { background:var(--accent); }
+  .chk { display:flex; gap:4px; }
+  .chk i { font-style:normal; font-size:10px; padding:1px 5px; border-radius:8px; border:1px solid var(--line); color:#9a9580; white-space:nowrap; }
+  .chk i.ok { color:var(--accent); border-color:var(--accent); background:#e3eede; }
   #foot { border-top:1px solid var(--line); padding:10px 14px; display:flex; flex-direction:column; gap:8px; }
   .row { display:flex; gap:8px; }
   button { font:inherit; font-size:13px; padding:7px 10px; border:1px solid var(--line); background:#fff; border-radius:7px; cursor:pointer; }
   button.primary { background:var(--accent); color:#fff; border-color:var(--accent); font-weight:600; }
   button.primary:disabled { opacity:.45; cursor:not-allowed; }
   button.ghost { background:transparent; }
+  #modeTee.primary { background:var(--tee); border-color:var(--tee); }
   #status { font-size:12px; color:#6a6655; min-height:16px; }
   #status.ok { color:var(--accent); } #status.err { color:var(--warn); }
-  #count { font-variant-numeric: tabular-nums; font-weight:600; }
+  #gcount, #tcount { font-variant-numeric: tabular-nums; font-weight:600; }
   #map { height:100%; }
   .leaflet-container { background:#222; }
   .pin { font-weight:700; color:#fff; text-align:center; line-height:24px; width:26px; height:26px; border-radius:50% 50% 50% 0; transform: rotate(-45deg); border:2px solid #fff; box-shadow:0 1px 4px rgba(0,0,0,.5); }
   .pin span { display:inline-block; transform: rotate(45deg); font-size:12px; }
   .pin.set { background:var(--accent); } .pin.active { background:var(--warn); }
+  .pin.tee { background:var(--tee); } .pin.tee.active { background:#e08a00; }
   .hint { position:absolute; z-index:500; top:10px; left:50%; transform:translateX(-50%); background:rgba(29,43,31,.88); color:#fff; padding:6px 12px; border-radius:20px; font-size:12px; pointer-events:none; }
 </style>
 </head>
@@ -51,20 +56,24 @@
     <div id="holes"></div>
     <div id="foot">
       <div class="row" style="justify-content:space-between; align-items:center;">
-        <span class="sub"><span id="count">0</span> / <span id="total">18</span> greens marked</span>
-        <button class="ghost" id="recenter" title="Fit all marked greens / course">Recenter</button>
+        <span class="sub">greens <span id="gcount">0</span>/<span id="total">18</span> · tees <span id="tcount">0</span>/<span id="ttotal">18</span></span>
+        <button class="ghost" id="recenter" title="Fit all marked anchors / course">Recenter</button>
+      </div>
+      <div class="row" id="modeRow">
+        <button id="modeGreen" class="primary" title="Place the green-center anchor">● Green</button>
+        <button id="modeTee" title="Place the tee-box anchor">▲ Tee</button>
       </div>
       <div class="row">
         <button id="prev">‹ Prev</button>
         <button id="next">Next ›</button>
-        <button class="ghost" id="clear" title="Clear this hole's pin">Clear</button>
+        <button class="ghost" id="clear" title="Clear this hole's anchor (current mode)">Clear</button>
       </div>
       <button class="primary" id="save" disabled>Save anchors → server</button>
-      <div id="status">Click a hole, then click its green on the map.</div>
+      <div id="status">Click a hole, pick Green or Tee, then click the map.</div>
     </div>
   </aside>
   <div style="position:relative;">
-    <div class="hint" id="hint">Select a hole, then click the center of its green.</div>
+    <div class="hint" id="hint">Select a hole, pick Green/Tee, then click the center of its green or tee.</div>
     <div id="map"></div>
   </div>
 </div>
@@ -72,10 +81,13 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 const COURSE_ID = new URLSearchParams(location.search).get("course");
-let course = null;            // {id,name,location,holes:[{number,par,yards,greenAnchor?}]}
+let course = null;            // {id,name,location,holes:[{number,par,yards,greenAnchor?,teeAnchor?}]}
 let active = 1;               // active hole number
-const marks = new Map();      // holeNumber -> {lat,lng}
+const marks = new Map();      // holeNumber -> {lat,lng}   (green-center anchors)
 const markers = new Map();    // holeNumber -> L.marker
+const teeMarks = new Map();   // holeNumber -> {lat,lng}   (tee-box anchors)
+const teeMarkers = new Map(); // holeNumber -> L.marker
+let mode = "green";           // "green" | "tee" — which anchor a map click sets
 let map;
 
 const $ = (s) => document.querySelector(s);
@@ -83,6 +95,9 @@ const fmt = (n) => Number(n).toFixed(6);
 
 function pinIcon(num, state) {
   return L.divIcon({ className:"", html:`<div class="pin ${state}"><span>${num}</span></div>`, iconSize:[26,26], iconAnchor:[13,26] });
+}
+function teePinIcon(num) {
+  return L.divIcon({ className:"", html:`<div class="pin tee"><span>${num}</span></div>`, iconSize:[26,26], iconAnchor:[13,26] });
 }
 
 async function boot() {
@@ -104,7 +119,12 @@ async function boot() {
   for (const h of course.holes) {
     if (h.greenAnchor) setMark(h.number, h.greenAnchor.lat, h.greenAnchor.lng, false);
   }
-  map.on("click", (e) => setMark(active, e.latlng.lat, e.latlng.lng, true));
+  // seed any teeAnchors already present in courses.json
+  for (const h of course.holes) {
+    if (h.teeAnchor) setTeeMark(h.number, h.teeAnchor.lat, h.teeAnchor.lng, false);
+  }
+  // a map click drops/moves the active hole's anchor in the current mode
+  map.on("click", (e) => (mode === "tee" ? setTeeMark : setMark)(active, e.latlng.lat, e.latlng.lng, true));
 
   renderHoles();
   selectHole(1);
@@ -129,6 +149,23 @@ function setMark(num, lat, lng, advance) {
   }
 }
 
+function setTeeMark(num, lat, lng, advance) {
+  teeMarks.set(num, { lat, lng });
+  let m = teeMarkers.get(num);
+  if (m) { m.setLatLng([lat,lng]); }
+  else {
+    m = L.marker([lat,lng], { draggable:true, icon: teePinIcon(num) }).addTo(map);
+    m.on("click", () => selectHole(num));
+    m.on("dragend", () => { const p = m.getLatLng(); teeMarks.set(num, {lat:p.lat, lng:p.lng}); renderHoles(); });
+    teeMarkers.set(num, m);
+  }
+  renderHoles();
+  if (advance) {
+    const nextUnset = course.holes.map(h=>h.number).find(n => n>num && !teeMarks.has(n));
+    if (nextUnset) selectHole(nextUnset);
+  }
+}
+
 function refreshIcons() {
   for (const [num, m] of markers) m.setIcon(pinIcon(num, num===active?"active":"set"));
 }
@@ -137,48 +174,70 @@ function selectHole(num) {
   active = num;
   refreshIcons();
   renderHoles();
-  const m = marks.get(num);
+  const cur = mode === "tee" ? teeMarks : marks;
+  const m = cur.get(num) || marks.get(num) || teeMarks.get(num);
   if (m) map.panTo([m.lat, m.lng]);
-  $("#hint").textContent = `Hole ${num} — click the center of its green` + (marks.has(num) ? " (or drag the pin)" : "");
+  $("#hint").textContent = `Hole ${num} — click the center of its ${mode === "tee" ? "tee box" : "green"}`
+    + (cur.has(num) ? " (or drag the pin)" : "");
 }
 
 function renderHoles() {
   const wrap = $("#holes");
   wrap.innerHTML = "";
   for (const h of course.holes) {
-    const m = marks.get(h.number);
+    const g = marks.get(h.number);
+    const t = teeMarks.get(h.number);
     const el = document.createElement("div");
-    el.className = "hole" + (h.number===active?" active":"") + (m?" set":"");
-    el.innerHTML = `<span class="dot"></span><span class="n">${h.number}</span>`
-      + `<span class="par">par ${h.par}</span>`
-      + `<span class="meta">${h.yards?h.yards+" yd":""}</span>`
-      + `<span class="coord">${m? fmt(m.lat)+", "+fmt(m.lng) : "—"}</span>`;
+    el.className = "hole" + (h.number===active?" active":"") + ((g||t)?" set":"");
+    // 18-row completeness checklist: par is always present in the data; tee and
+    // green flip to ✓ once that anchor is placed. Publish is gated on these.
+    el.innerHTML = `<span class="n">${h.number}</span>`
+      + `<span class="chk"><i class="ok">par ✓</i><i class="${t?"ok":"no"}">tee ${t?"✓":"·"}</i><i class="${g?"ok":"no"}">green ${g?"✓":"·"}</i></span>`
+      + `<span class="coord">${g? fmt(g.lat)+", "+fmt(g.lng) : "—"}</span>`;
     el.onclick = () => selectHole(h.number);
     wrap.appendChild(el);
   }
-  $("#count").textContent = marks.size;
-  $("#save").disabled = marks.size === 0;
+  $("#gcount").textContent = marks.size;
+  $("#tcount").textContent = teeMarks.size;
+  $("#ttotal").textContent = course.holes.length;
+  $("#save").disabled = marks.size === 0 && teeMarks.size === 0;
 }
 
 function recenter() {
-  if (marks.size) {
-    const b = L.latLngBounds([...marks.values()].map(m=>[m.lat,m.lng]));
-    map.fitBounds(b.pad(0.25));
+  const pts = [...marks.values(), ...teeMarks.values()].map(m=>[m.lat,m.lng]);
+  if (pts.length) {
+    map.fitBounds(L.latLngBounds(pts).pad(0.25));
   } else map.setView([course.location.lat, course.location.lng], 16);
+}
+
+function setMode(m) {
+  mode = m;
+  $("#modeGreen").className = m === "green" ? "primary" : "";
+  $("#modeTee").className = m === "tee" ? "primary" : "";
+  selectHole(active); // refresh hint / pan for the new mode
 }
 
 $("#prev").onclick = () => selectHole(active>1?active-1:course.holes.length);
 $("#next").onclick = () => selectHole(active<course.holes.length?active+1:1);
 $("#recenter").onclick = recenter;
+$("#modeGreen").onclick = () => setMode("green");
+$("#modeTee").onclick = () => setMode("tee");
 $("#clear").onclick = () => {
-  marks.delete(active);
-  const m = markers.get(active); if (m){ map.removeLayer(m); markers.delete(active); }
+  const mks = mode === "tee" ? teeMarks : marks;
+  const mkr = mode === "tee" ? teeMarkers : markers;
+  mks.delete(active);
+  const m = mkr.get(active); if (m){ map.removeLayer(m); mkr.delete(active); }
   renderHoles();
 };
 
 $("#save").onclick = async () => {
-  const anchors = [...marks.entries()].sort((a,b)=>a[0]-b[0])
-    .map(([number, p]) => ({ holeNumber:number, greenAnchor:{ lat:+fmt(p.lat), lng:+fmt(p.lng) } }));
+  const nums = [...new Set([...marks.keys(), ...teeMarks.keys()])].sort((a,b)=>a-b);
+  const anchors = nums.map((number) => {
+    const a = { holeNumber: number };
+    const g = marks.get(number); if (g) a.greenAnchor = { lat:+fmt(g.lat), lng:+fmt(g.lng) };
+    const t = teeMarks.get(number); if (t) a.teeAnchor = { lat:+fmt(t.lat), lng:+fmt(t.lng) };
+    return a;
+  });
   const payload = { courseId: course.id, anchors };
   const s = $("#status");
   s.className = ""; s.textContent = "Saving…";
@@ -187,7 +246,7 @@ $("#save").onclick = async () => {
       method:"POST", headers:{ "content-type":"application/json" }, body: JSON.stringify(payload, null, 2) });
     const j = await res.json();
     if (!res.ok) throw new Error(j.error || res.status);
-    s.className = "ok"; s.textContent = `✓ Saved ${anchors.length} anchors → ${j.path}`;
+    s.className = "ok"; s.textContent = `✓ Saved ${j.applied ?? anchors.length} holes · ${j.greens}/${j.total} greens · ${j.tees}/${j.total} tees`;
   } catch (err) { s.className = "err"; s.textContent = "✗ " + err.message; }
 };
 
