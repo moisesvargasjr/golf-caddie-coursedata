@@ -86,6 +86,7 @@ const server = createServer(async (req, res) => {
         name: c.name,
         holes: c.holes.length,
         greens: c.holes.filter((h) => h.greenAnchor).length,
+        tees: c.holes.filter((h) => h.teeAnchor).length,
         par: c.holes.reduce((s, h) => s + h.par, 0),
       }))
       return send(res, 200, { courses })
@@ -177,11 +178,32 @@ const server = createServer(async (req, res) => {
       await mkdir(dirname(out), { recursive: true })
       await writeFile(out, JSON.stringify(payload, null, 2) + '\n')
       const greens = course.holes.filter((h) => h.greenAnchor).length
-      return send(res, 200, { ok: true, applied, greens, total: course.holes.length })
+      const tees = course.holes.filter((h) => h.teeAnchor).length
+      return send(res, 200, { ok: true, applied, greens, tees, total: course.holes.length })
     }
 
     // ---- publish: commit + push data/courses.json (the app syncs the raw URL) ----
     if (p === '/api/publish' && req.method === 'POST') {
+      const { override } = await readJSON(req)
+      // Completeness gate: every hole needs par + tee + green before a clean
+      // publish, so a half-marked course can't silently ship (e.g. no yardage
+      // on the 14th). `override:true` ships anyway (greenAnchor-only courses).
+      const incomplete = load().courses.flatMap((c) =>
+        c.holes
+          .filter((h) => !h.teeAnchor || !h.greenAnchor)
+          .map((h) => ({
+            course: c.id,
+            hole: h.number,
+            missing: [!h.teeAnchor ? 'tee' : null, !h.greenAnchor ? 'green' : null].filter(Boolean),
+          }))
+      )
+      if (incomplete.length && !override) {
+        return send(res, 409, {
+          error: 'incomplete',
+          incomplete,
+          note: `${incomplete.length} hole(s) missing tee/green — re-publish with override to ship anyway`,
+        })
+      }
       const git = (args: string[]) => execFileP('git', ['-C', ROOT, ...args])
       const status = await git(['status', '--porcelain', 'data/courses.json'])
       if (!status.stdout.trim()) return send(res, 200, { ok: true, note: 'nothing to publish (no changes)' })
