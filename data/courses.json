@@ -315,6 +315,10 @@
           "greenAnchor": {
             "lat": 33.213171,
             "lng": -117.332677
+          },
+          "teeAnchor": {
+            "lat": 33.214357,
+            "lng": -117.332238
           }
         },
         {
@@ -323,6 +327,10 @@
           "greenAnchor": {
             "lat": 33.212143,
             "lng": -117.33285
+          },
+          "teeAnchor": {
+            "lat": 33.213558,
+            "lng": -117.332319
           }
         },
         {
@@ -331,6 +339,10 @@
           "greenAnchor": {
             "lat": 33.212298,
             "lng": -117.330967
+          },
+          "teeAnchor": {
+            "lat": 33.212051,
+            "lng": -117.332395
           }
         },
         {
@@ -339,6 +351,10 @@
           "greenAnchor": {
             "lat": 33.212212,
             "lng": -117.329618
+          },
+          "teeAnchor": {
+            "lat": 33.21207,
+            "lng": -117.330721
           }
         },
         {
@@ -347,6 +363,10 @@
           "greenAnchor": {
             "lat": 33.212235,
             "lng": -117.327802
+          },
+          "teeAnchor": {
+            "lat": 33.212134,
+            "lng": -117.329127
           }
         },
         {
@@ -355,6 +375,10 @@
           "greenAnchor": {
             "lat": 33.212319,
             "lng": -117.326037
+          },
+          "teeAnchor": {
+            "lat": 33.212256,
+            "lng": -117.327229
           }
         },
         {
@@ -363,6 +387,10 @@
           "greenAnchor": {
             "lat": 33.21249,
             "lng": -117.323433
+          },
+          "teeAnchor": {
+            "lat": 33.212301,
+            "lng": -117.325675
           }
         },
         {
@@ -371,6 +399,10 @@
           "greenAnchor": {
             "lat": 33.213288,
             "lng": -117.322796
+          },
+          "teeAnchor": {
+            "lat": 33.212435,
+            "lng": -117.322825
           }
         },
         {
@@ -379,6 +411,10 @@
           "greenAnchor": {
             "lat": 33.212925,
             "lng": -117.324363
+          },
+          "teeAnchor": {
+            "lat": 33.212839,
+            "lng": -117.323182
           }
         },
         {
@@ -387,6 +423,10 @@
           "greenAnchor": {
             "lat": 33.213433,
             "lng": -117.323221
+          },
+          "teeAnchor": {
+            "lat": 33.213205,
+            "lng": -117.324448
           }
         },
         {
@@ -395,6 +435,10 @@
           "greenAnchor": {
             "lat": 33.213798,
             "lng": -117.324241
+          },
+          "teeAnchor": {
+            "lat": 33.213594,
+            "lng": -117.323513
           }
         },
         {
@@ -403,6 +447,10 @@
           "greenAnchor": {
             "lat": 33.212788,
             "lng": -117.325116
+          },
+          "teeAnchor": {
+            "lat": 33.213622,
+            "lng": -117.324544
           }
         },
         {
@@ -411,6 +459,10 @@
           "greenAnchor": {
             "lat": 33.212585,
             "lng": -117.326382
+          },
+          "teeAnchor": {
+            "lat": 33.212631,
+            "lng": -117.325502
           }
         },
         {
@@ -419,6 +471,10 @@
           "greenAnchor": {
             "lat": 33.212628,
             "lng": -117.328216
+          },
+          "teeAnchor": {
+            "lat": 33.212527,
+            "lng": -117.326974
           }
         },
         {
@@ -427,6 +483,10 @@
           "greenAnchor": {
             "lat": 33.212412,
             "lng": -117.332243
+          },
+          "teeAnchor": {
+            "lat": 33.212738,
+            "lng": -117.330962
           }
         },
         {
@@ -435,6 +495,10 @@
           "greenAnchor": {
             "lat": 33.212985,
             "lng": -117.33111
+          },
+          "teeAnchor": {
+            "lat": 33.212783,
+            "lng": -117.332222
           }
         },
         {
@@ -443,6 +507,10 @@
           "greenAnchor": {
             "lat": 33.213374,
             "lng": -117.331902
+          },
+          "teeAnchor": {
+            "lat": 33.213384,
+            "lng": -117.331006
           }
         },
         {
@@ -451,6 +519,10 @@
           "greenAnchor": {
             "lat": 33.214441,
             "lng": -117.331902
+          },
+          "teeAnchor": {
+            "lat": 33.213795,
+            "lng": -117.332226
           }
         }
       ]
@@ -610,6 +682,375 @@
           "greenAnchor": {
             "lat": 33.23067,
             "lng": -117.142626
+          }
+        }
+      ]
+    },
+    {
+      "id": "oaks-north-east",
+      "name": "Oaks North \u2014 East",
+      "aliases": [
+        "Oaks North",
+        "Oaks North Golf Course",
+        "East Course"
+      ],
+      "location": {
+        "lat": 33.0338,
+        "lng": -117.05662
+      },
+      "holes": [
+        {
+          "number": 1,
+          "par": 4,
+          "greenAnchor": {
+            "lat": 33.033926,
+            "lng": -117.052792
+          },
+          "teeAnchor": {
+            "lat": 33.033885,
+            "lng": -117.055217
+          }
+        },
+        {
+          "number": 2,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.034747,
+            "lng": -117.051561
+          },
+          "teeAnchor": {
+            "lat": 33.034171,
+            "lng": -117.052355
+          }
+        },
+        {
+          "number": 3,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.036249,
+            "lng": -117.050896
+          },
+          "teeAnchor": {
+            "lat": 33.035145,
+            "lng": -117.051682
+          }
+        },
+        {
+          "number": 4,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.034895,
+            "lng": -117.050982
+          },
+          "teeAnchor": {
+            "lat": 33.036006,
+            "lng": -117.050156
+          }
+        },
+        {
+          "number": 5,
+          "par": 4,
+          "greenAnchor": {
+            "lat": 33.032808,
+            "lng": -117.048538
+          },
+          "teeAnchor": {
+            "lat": 33.034614,
+            "lng": -117.050215
+          }
+        },
+        {
+          "number": 6,
+          "par": 4,
+          "greenAnchor": {
+            "lat": 33.033571,
+            "lng": -117.050169
+          },
+          "teeAnchor": {
+            "lat": 33.032122,
+            "lng": -117.048849
+          }
+        },
+        {
+          "number": 7,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.034086,
+            "lng": -117.051438
+          },
+          "teeAnchor": {
+            "lat": 33.034182,
+            "lng": -117.05036
+          }
+        },
+        {
+          "number": 8,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.033204,
+            "lng": -117.053433
+          },
+          "teeAnchor": {
+            "lat": 33.033809,
+            "lng": -117.052036
+          }
+        },
+        {
+          "number": 9,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.033476,
+            "lng": -117.055233
+          },
+          "teeAnchor": {
+            "lat": 33.033152,
+            "lng": -117.054002
+          }
+        }
+      ]
+    },
+    {
+      "id": "oaks-north-north",
+      "name": "Oaks North \u2014 North",
+      "aliases": [
+        "Oaks North",
+        "Oaks North Golf Course",
+        "North Course"
+      ],
+      "location": {
+        "lat": 33.0338,
+        "lng": -117.05662
+      },
+      "holes": [
+        {
+          "number": 1,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.035446,
+            "lng": -117.056998
+          },
+          "teeAnchor": {
+            "lat": 33.03407,
+            "lng": -117.056405
+          }
+        },
+        {
+          "number": 2,
+          "par": 4,
+          "greenAnchor": {
+            "lat": 33.035684,
+            "lng": -117.059809
+          },
+          "teeAnchor": {
+            "lat": 33.035419,
+            "lng": -117.057559
+          }
+        },
+        {
+          "number": 3,
+          "par": 4,
+          "greenAnchor": {
+            "lat": 33.0361,
+            "lng": -117.05703
+          },
+          "teeAnchor": {
+            "lat": 33.036372,
+            "lng": -117.060007
+          }
+        },
+        {
+          "number": 4,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.036712,
+            "lng": -117.055542
+          },
+          "teeAnchor": {
+            "lat": 33.036602,
+            "lng": -117.056821
+          }
+        },
+        {
+          "number": 5,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.038032,
+            "lng": -117.054168
+          },
+          "teeAnchor": {
+            "lat": 33.037198,
+            "lng": -117.055244
+          }
+        },
+        {
+          "number": 6,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.039639,
+            "lng": -117.054082
+          },
+          "teeAnchor": {
+            "lat": 33.038423,
+            "lng": -117.054372
+          }
+        },
+        {
+          "number": 7,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.038508,
+            "lng": -117.053852
+          },
+          "teeAnchor": {
+            "lat": 33.039669,
+            "lng": -117.053541
+          }
+        },
+        {
+          "number": 8,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.03675,
+            "lng": -117.054801
+          },
+          "teeAnchor": {
+            "lat": 33.037886,
+            "lng": -117.053605
+          }
+        },
+        {
+          "number": 9,
+          "par": 4,
+          "greenAnchor": {
+            "lat": 33.034308,
+            "lng": -117.055139
+          },
+          "teeAnchor": {
+            "lat": 33.036312,
+            "lng": -117.054917
+          }
+        }
+      ]
+    },
+    {
+      "id": "oaks-north-south",
+      "name": "Oaks North \u2014 South",
+      "aliases": [
+        "Oaks North",
+        "Oaks North Golf Course",
+        "South Course"
+      ],
+      "location": {
+        "lat": 33.0338,
+        "lng": -117.05662
+      },
+      "holes": [
+        {
+          "number": 1,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.032244,
+            "lng": -117.056952
+          },
+          "teeAnchor": {
+            "lat": 33.033141,
+            "lng": -117.055721
+          }
+        },
+        {
+          "number": 2,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.030467,
+            "lng": -117.055941
+          },
+          "teeAnchor": {
+            "lat": 33.031378,
+            "lng": -117.057368
+          }
+        },
+        {
+          "number": 3,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.030899,
+            "lng": -117.053908
+          },
+          "teeAnchor": {
+            "lat": 33.030803,
+            "lng": -117.055488
+          }
+        },
+        {
+          "number": 4,
+          "par": 4,
+          "greenAnchor": {
+            "lat": 33.032467,
+            "lng": -117.05139
+          },
+          "teeAnchor": {
+            "lat": 33.031297,
+            "lng": -117.053441
+          }
+        },
+        {
+          "number": 5,
+          "par": 4,
+          "greenAnchor": {
+            "lat": 33.030411,
+            "lng": -117.053256
+          },
+          "teeAnchor": {
+            "lat": 33.032125,
+            "lng": -117.050936
+          }
+        },
+        {
+          "number": 6,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.030252,
+            "lng": -117.055161
+          },
+          "teeAnchor": {
+            "lat": 33.030362,
+            "lng": -117.053841
+          }
+        },
+        {
+          "number": 7,
+          "par": 4,
+          "greenAnchor": {
+            "lat": 33.03024,
+            "lng": -117.058256
+          },
+          "teeAnchor": {
+            "lat": 33.029896,
+            "lng": -117.055641
+          }
+        },
+        {
+          "number": 8,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.031812,
+            "lng": -117.057966
+          },
+          "teeAnchor": {
+            "lat": 33.030285,
+            "lng": -117.058739
+          }
+        },
+        {
+          "number": 9,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.033317,
+            "lng": -117.056271
+          },
+          "teeAnchor": {
+            "lat": 33.03253,
+            "lng": -117.057682
           }
         }
       ]
@@ -963,6 +1404,696 @@
           "greenAnchor": {
             "lat": 41.509212,
             "lng": -74.406452
+          }
+        }
+      ]
+    },
+    {
+      "id": "oaks-north-north-east",
+      "name": "Oaks North \u2014 North/East",
+      "aliases": [
+        "Oaks North",
+        "Oaks North Golf Course"
+      ],
+      "location": {
+        "lat": 33.0338,
+        "lng": -117.05662
+      },
+      "holes": [
+        {
+          "number": 1,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.035446,
+            "lng": -117.056998
+          },
+          "teeAnchor": {
+            "lat": 33.03407,
+            "lng": -117.056405
+          }
+        },
+        {
+          "number": 2,
+          "par": 4,
+          "greenAnchor": {
+            "lat": 33.035684,
+            "lng": -117.059809
+          },
+          "teeAnchor": {
+            "lat": 33.035419,
+            "lng": -117.057559
+          }
+        },
+        {
+          "number": 3,
+          "par": 4,
+          "greenAnchor": {
+            "lat": 33.0361,
+            "lng": -117.05703
+          },
+          "teeAnchor": {
+            "lat": 33.036372,
+            "lng": -117.060007
+          }
+        },
+        {
+          "number": 4,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.036712,
+            "lng": -117.055542
+          },
+          "teeAnchor": {
+            "lat": 33.036602,
+            "lng": -117.056821
+          }
+        },
+        {
+          "number": 5,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.038032,
+            "lng": -117.054168
+          },
+          "teeAnchor": {
+            "lat": 33.037198,
+            "lng": -117.055244
+          }
+        },
+        {
+          "number": 6,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.039639,
+            "lng": -117.054082
+          },
+          "teeAnchor": {
+            "lat": 33.038423,
+            "lng": -117.054372
+          }
+        },
+        {
+          "number": 7,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.038508,
+            "lng": -117.053852
+          },
+          "teeAnchor": {
+            "lat": 33.039669,
+            "lng": -117.053541
+          }
+        },
+        {
+          "number": 8,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.03675,
+            "lng": -117.054801
+          },
+          "teeAnchor": {
+            "lat": 33.037886,
+            "lng": -117.053605
+          }
+        },
+        {
+          "number": 9,
+          "par": 4,
+          "greenAnchor": {
+            "lat": 33.034308,
+            "lng": -117.055139
+          },
+          "teeAnchor": {
+            "lat": 33.036312,
+            "lng": -117.054917
+          }
+        },
+        {
+          "number": 10,
+          "par": 4,
+          "greenAnchor": {
+            "lat": 33.033926,
+            "lng": -117.052792
+          },
+          "teeAnchor": {
+            "lat": 33.033885,
+            "lng": -117.055217
+          }
+        },
+        {
+          "number": 11,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.034747,
+            "lng": -117.051561
+          },
+          "teeAnchor": {
+            "lat": 33.034171,
+            "lng": -117.052355
+          }
+        },
+        {
+          "number": 12,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.036249,
+            "lng": -117.050896
+          },
+          "teeAnchor": {
+            "lat": 33.035145,
+            "lng": -117.051682
+          }
+        },
+        {
+          "number": 13,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.034895,
+            "lng": -117.050982
+          },
+          "teeAnchor": {
+            "lat": 33.036006,
+            "lng": -117.050156
+          }
+        },
+        {
+          "number": 14,
+          "par": 4,
+          "greenAnchor": {
+            "lat": 33.032808,
+            "lng": -117.048538
+          },
+          "teeAnchor": {
+            "lat": 33.034614,
+            "lng": -117.050215
+          }
+        },
+        {
+          "number": 15,
+          "par": 4,
+          "greenAnchor": {
+            "lat": 33.033571,
+            "lng": -117.050169
+          },
+          "teeAnchor": {
+            "lat": 33.032122,
+            "lng": -117.048849
+          }
+        },
+        {
+          "number": 16,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.034086,
+            "lng": -117.051438
+          },
+          "teeAnchor": {
+            "lat": 33.034182,
+            "lng": -117.05036
+          }
+        },
+        {
+          "number": 17,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.033204,
+            "lng": -117.053433
+          },
+          "teeAnchor": {
+            "lat": 33.033809,
+            "lng": -117.052036
+          }
+        },
+        {
+          "number": 18,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.033476,
+            "lng": -117.055233
+          },
+          "teeAnchor": {
+            "lat": 33.033152,
+            "lng": -117.054002
+          }
+        }
+      ]
+    },
+    {
+      "id": "oaks-north-east-south",
+      "name": "Oaks North \u2014 East/South",
+      "aliases": [
+        "Oaks North",
+        "Oaks North Golf Course"
+      ],
+      "location": {
+        "lat": 33.0338,
+        "lng": -117.05662
+      },
+      "holes": [
+        {
+          "number": 1,
+          "par": 4,
+          "greenAnchor": {
+            "lat": 33.033926,
+            "lng": -117.052792
+          },
+          "teeAnchor": {
+            "lat": 33.033885,
+            "lng": -117.055217
+          }
+        },
+        {
+          "number": 2,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.034747,
+            "lng": -117.051561
+          },
+          "teeAnchor": {
+            "lat": 33.034171,
+            "lng": -117.052355
+          }
+        },
+        {
+          "number": 3,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.036249,
+            "lng": -117.050896
+          },
+          "teeAnchor": {
+            "lat": 33.035145,
+            "lng": -117.051682
+          }
+        },
+        {
+          "number": 4,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.034895,
+            "lng": -117.050982
+          },
+          "teeAnchor": {
+            "lat": 33.036006,
+            "lng": -117.050156
+          }
+        },
+        {
+          "number": 5,
+          "par": 4,
+          "greenAnchor": {
+            "lat": 33.032808,
+            "lng": -117.048538
+          },
+          "teeAnchor": {
+            "lat": 33.034614,
+            "lng": -117.050215
+          }
+        },
+        {
+          "number": 6,
+          "par": 4,
+          "greenAnchor": {
+            "lat": 33.033571,
+            "lng": -117.050169
+          },
+          "teeAnchor": {
+            "lat": 33.032122,
+            "lng": -117.048849
+          }
+        },
+        {
+          "number": 7,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.034086,
+            "lng": -117.051438
+          },
+          "teeAnchor": {
+            "lat": 33.034182,
+            "lng": -117.05036
+          }
+        },
+        {
+          "number": 8,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.033204,
+            "lng": -117.053433
+          },
+          "teeAnchor": {
+            "lat": 33.033809,
+            "lng": -117.052036
+          }
+        },
+        {
+          "number": 9,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.033476,
+            "lng": -117.055233
+          },
+          "teeAnchor": {
+            "lat": 33.033152,
+            "lng": -117.054002
+          }
+        },
+        {
+          "number": 10,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.032244,
+            "lng": -117.056952
+          },
+          "teeAnchor": {
+            "lat": 33.033141,
+            "lng": -117.055721
+          }
+        },
+        {
+          "number": 11,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.030467,
+            "lng": -117.055941
+          },
+          "teeAnchor": {
+            "lat": 33.031378,
+            "lng": -117.057368
+          }
+        },
+        {
+          "number": 12,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.030899,
+            "lng": -117.053908
+          },
+          "teeAnchor": {
+            "lat": 33.030803,
+            "lng": -117.055488
+          }
+        },
+        {
+          "number": 13,
+          "par": 4,
+          "greenAnchor": {
+            "lat": 33.032467,
+            "lng": -117.05139
+          },
+          "teeAnchor": {
+            "lat": 33.031297,
+            "lng": -117.053441
+          }
+        },
+        {
+          "number": 14,
+          "par": 4,
+          "greenAnchor": {
+            "lat": 33.030411,
+            "lng": -117.053256
+          },
+          "teeAnchor": {
+            "lat": 33.032125,
+            "lng": -117.050936
+          }
+        },
+        {
+          "number": 15,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.030252,
+            "lng": -117.055161
+          },
+          "teeAnchor": {
+            "lat": 33.030362,
+            "lng": -117.053841
+          }
+        },
+        {
+          "number": 16,
+          "par": 4,
+          "greenAnchor": {
+            "lat": 33.03024,
+            "lng": -117.058256
+          },
+          "teeAnchor": {
+            "lat": 33.029896,
+            "lng": -117.055641
+          }
+        },
+        {
+          "number": 17,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.031812,
+            "lng": -117.057966
+          },
+          "teeAnchor": {
+            "lat": 33.030285,
+            "lng": -117.058739
+          }
+        },
+        {
+          "number": 18,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.033317,
+            "lng": -117.056271
+          },
+          "teeAnchor": {
+            "lat": 33.03253,
+            "lng": -117.057682
+          }
+        }
+      ]
+    },
+    {
+      "id": "oaks-north-south-north",
+      "name": "Oaks North \u2014 South/North",
+      "aliases": [
+        "Oaks North",
+        "Oaks North Golf Course"
+      ],
+      "location": {
+        "lat": 33.0338,
+        "lng": -117.05662
+      },
+      "holes": [
+        {
+          "number": 1,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.032244,
+            "lng": -117.056952
+          },
+          "teeAnchor": {
+            "lat": 33.033141,
+            "lng": -117.055721
+          }
+        },
+        {
+          "number": 2,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.030467,
+            "lng": -117.055941
+          },
+          "teeAnchor": {
+            "lat": 33.031378,
+            "lng": -117.057368
+          }
+        },
+        {
+          "number": 3,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.030899,
+            "lng": -117.053908
+          },
+          "teeAnchor": {
+            "lat": 33.030803,
+            "lng": -117.055488
+          }
+        },
+        {
+          "number": 4,
+          "par": 4,
+          "greenAnchor": {
+            "lat": 33.032467,
+            "lng": -117.05139
+          },
+          "teeAnchor": {
+            "lat": 33.031297,
+            "lng": -117.053441
+          }
+        },
+        {
+          "number": 5,
+          "par": 4,
+          "greenAnchor": {
+            "lat": 33.030411,
+            "lng": -117.053256
+          },
+          "teeAnchor": {
+            "lat": 33.032125,
+            "lng": -117.050936
+          }
+        },
+        {
+          "number": 6,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.030252,
+            "lng": -117.055161
+          },
+          "teeAnchor": {
+            "lat": 33.030362,
+            "lng": -117.053841
+          }
+        },
+        {
+          "number": 7,
+          "par": 4,
+          "greenAnchor": {
+            "lat": 33.03024,
+            "lng": -117.058256
+          },
+          "teeAnchor": {
+            "lat": 33.029896,
+            "lng": -117.055641
+          }
+        },
+        {
+          "number": 8,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.031812,
+            "lng": -117.057966
+          },
+          "teeAnchor": {
+            "lat": 33.030285,
+            "lng": -117.058739
+          }
+        },
+        {
+          "number": 9,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.033317,
+            "lng": -117.056271
+          },
+          "teeAnchor": {
+            "lat": 33.03253,
+            "lng": -117.057682
+          }
+        },
+        {
+          "number": 10,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.035446,
+            "lng": -117.056998
+          },
+          "teeAnchor": {
+            "lat": 33.03407,
+            "lng": -117.056405
+          }
+        },
+        {
+          "number": 11,
+          "par": 4,
+          "greenAnchor": {
+            "lat": 33.035684,
+            "lng": -117.059809
+          },
+          "teeAnchor": {
+            "lat": 33.035419,
+            "lng": -117.057559
+          }
+        },
+        {
+          "number": 12,
+          "par": 4,
+          "greenAnchor": {
+            "lat": 33.0361,
+            "lng": -117.05703
+          },
+          "teeAnchor": {
+            "lat": 33.036372,
+            "lng": -117.060007
+          }
+        },
+        {
+          "number": 13,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.036712,
+            "lng": -117.055542
+          },
+          "teeAnchor": {
+            "lat": 33.036602,
+            "lng": -117.056821
+          }
+        },
+        {
+          "number": 14,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.038032,
+            "lng": -117.054168
+          },
+          "teeAnchor": {
+            "lat": 33.037198,
+            "lng": -117.055244
+          }
+        },
+        {
+          "number": 15,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.039639,
+            "lng": -117.054082
+          },
+          "teeAnchor": {
+            "lat": 33.038423,
+            "lng": -117.054372
+          }
+        },
+        {
+          "number": 16,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.038508,
+            "lng": -117.053852
+          },
+          "teeAnchor": {
+            "lat": 33.039669,
+            "lng": -117.053541
+          }
+        },
+        {
+          "number": 17,
+          "par": 3,
+          "greenAnchor": {
+            "lat": 33.03675,
+            "lng": -117.054801
+          },
+          "teeAnchor": {
+            "lat": 33.037886,
+            "lng": -117.053605
+          }
+        },
+        {
+          "number": 18,
+          "par": 4,
+          "greenAnchor": {
+            "lat": 33.034308,
+            "lng": -117.055139
+          },
+          "teeAnchor": {
+            "lat": 33.036312,
+            "lng": -117.054917
           }
         }
       ]
