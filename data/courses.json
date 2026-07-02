@@ -546,6 +546,10 @@
           "greenAnchor": {
             "lat": 33.229795,
             "lng": -117.14198
+          },
+          "teeAnchor": {
+            "lat": 33.230423,
+            "lng": -117.14225
           }
         },
         {
@@ -554,6 +558,10 @@
           "greenAnchor": {
             "lat": 33.228713,
             "lng": -117.141834
+          },
+          "teeAnchor": {
+            "lat": 33.229417,
+            "lng": -117.141884
           }
         },
         {
@@ -562,6 +570,10 @@
           "greenAnchor": {
             "lat": 33.227961,
             "lng": -117.142051
+          },
+          "teeAnchor": {
+            "lat": 33.228702,
+            "lng": -117.142237
           }
         },
         {
@@ -570,6 +582,10 @@
           "greenAnchor": {
             "lat": 33.228566,
             "lng": -117.14274
+          },
+          "teeAnchor": {
+            "lat": 33.228007,
+            "lng": -117.142413
           }
         },
         {
@@ -578,6 +594,10 @@
           "greenAnchor": {
             "lat": 33.228901,
             "lng": -117.143507
+          },
+          "teeAnchor": {
+            "lat": 33.228165,
+            "lng": -117.143346
           }
         },
         {
@@ -586,6 +606,10 @@
           "greenAnchor": {
             "lat": 33.229154,
             "lng": -117.142299
+          },
+          "teeAnchor": {
+            "lat": 33.22873,
+            "lng": -117.143204
           }
         },
         {
@@ -594,6 +618,10 @@
           "greenAnchor": {
             "lat": 33.22982,
             "lng": -117.142901
+          },
+          "teeAnchor": {
+            "lat": 33.229424,
+            "lng": -117.142223
           }
         },
         {
@@ -602,6 +630,10 @@
           "greenAnchor": {
             "lat": 33.229255,
             "lng": -117.143326
+          },
+          "teeAnchor": {
+            "lat": 33.229352,
+            "lng": -117.142461
           }
         },
         {
@@ -610,14 +642,22 @@
           "greenAnchor": {
             "lat": 33.230531,
             "lng": -117.143277
+          },
+          "teeAnchor": {
+            "lat": 33.229591,
+            "lng": -117.143236
           }
         },
         {
           "number": 10,
           "par": 3,
           "greenAnchor": {
-            "lat": 33.230003,
-            "lng": -117.143434
+            "lat": 33.229908,
+            "lng": -117.143714
+          },
+          "teeAnchor": {
+            "lat": 33.230869,
+            "lng": -117.143695
           }
         },
         {
@@ -626,6 +666,10 @@
           "greenAnchor": {
             "lat": 33.229646,
             "lng": -117.143603
+          },
+          "teeAnchor": {
+            "lat": 33.22898,
+            "lng": -117.143704
           }
         },
         {
@@ -634,6 +678,10 @@
           "greenAnchor": {
             "lat": 33.230407,
             "lng": -117.143973
+          },
+          "teeAnchor": {
+            "lat": 33.229495,
+            "lng": -117.143895
           }
         },
         {
@@ -642,6 +690,10 @@
           "greenAnchor": {
             "lat": 33.231255,
             "lng": -117.144307
+          },
+          "teeAnchor": {
+            "lat": 33.230494,
+            "lng": -117.144219
           }
         },
         {
@@ -650,6 +702,10 @@
           "greenAnchor": {
             "lat": 33.232385,
             "lng": -117.144427
+          },
+          "teeAnchor": {
+            "lat": 33.231481,
+            "lng": -117.144579
           }
         },
         {
@@ -658,6 +714,10 @@
           "greenAnchor": {
             "lat": 33.231563,
             "lng": -117.144156
+          },
+          "teeAnchor": {
+            "lat": 33.232275,
+            "lng": -117.143932
           }
         },
         {
@@ -666,6 +726,10 @@
           "greenAnchor": {
             "lat": 33.230796,
             "lng": -117.143904
+          },
+          "teeAnchor": {
+            "lat": 33.231427,
+            "lng": -117.143934
           }
         },
         {
@@ -674,6 +738,10 @@
           "greenAnchor": {
             "lat": 33.230101,
             "lng": -117.142764
+          },
+          "teeAnchor": {
+            "lat": 33.230701,
+            "lng": -117.142976
           }
         },
         {
@@ -682,6 +750,10 @@
           "greenAnchor": {
             "lat": 33.23067,
             "lng": -117.142626
+          },
+          "teeAnchor": {
+            "lat": 33.229698,
+            "lng": -117.142235
           }
         }
       ]
@@ -1899,6 +1971,536 @@
           "greenAnchor": {
             "lat": 33.147957,
             "lng": -117.287192
+          }
+        }
+      ]
+    },
+    {
+      "id": "the-fountains",
+      "name": "The Fountains",
+      "aliases": [
+        "The Welk Resort San Diego"
+      ],
+      "location": {
+        "lat": 33.232536,
+        "lng": -117.14329
+      },
+      "holes": [
+        {
+          "number": 1,
+          "par": 3,
+          "yards": 143,
+          "strokeIndex": 5,
+          "greenAnchor": {
+            "lat": 33.230501,
+            "lng": -117.14064
+          },
+          "teeAnchor": {
+            "lat": 33.231266,
+            "lng": -117.14152
+          }
+        },
+        {
+          "number": 2,
+          "par": 4,
+          "yards": 266,
+          "strokeIndex": 11,
+          "greenAnchor": {
+            "lat": 33.230158,
+            "lng": -117.137872
+          },
+          "teeAnchor": {
+            "lat": 33.230714,
+            "lng": -117.140171
+          }
+        },
+        {
+          "number": 3,
+          "par": 3,
+          "yards": 122,
+          "strokeIndex": 17,
+          "greenAnchor": {
+            "lat": 33.231701,
+            "lng": -117.137628
+          },
+          "teeAnchor": {
+            "lat": 33.230882,
+            "lng": -117.137639
+          }
+        },
+        {
+          "number": 4,
+          "par": 3,
+          "yards": 161,
+          "strokeIndex": 9,
+          "greenAnchor": {
+            "lat": 33.233463,
+            "lng": -117.138333
+          },
+          "teeAnchor": {
+            "lat": 33.232413,
+            "lng": -117.137679
+          }
+        },
+        {
+          "number": 5,
+          "par": 4,
+          "yards": 297,
+          "strokeIndex": 1,
+          "greenAnchor": {
+            "lat": 33.236191,
+            "lng": -117.138221
+          },
+          "teeAnchor": {
+            "lat": 33.233898,
+            "lng": -117.138754
+          }
+        },
+        {
+          "number": 6,
+          "par": 3,
+          "yards": 168,
+          "strokeIndex": 7,
+          "greenAnchor": {
+            "lat": 33.237981,
+            "lng": -117.138379
+          },
+          "teeAnchor": {
+            "lat": 33.236738,
+            "lng": -117.138215
+          }
+        },
+        {
+          "number": 7,
+          "par": 4,
+          "yards": 315,
+          "strokeIndex": 13,
+          "greenAnchor": {
+            "lat": 33.235993,
+            "lng": -117.139084
+          },
+          "teeAnchor": {
+            "lat": 33.238313,
+            "lng": -117.138977
+          }
+        },
+        {
+          "number": 8,
+          "par": 3,
+          "yards": 157,
+          "strokeIndex": 15,
+          "greenAnchor": {
+            "lat": 33.237193,
+            "lng": -117.139551
+          },
+          "teeAnchor": {
+            "lat": 33.236076,
+            "lng": -117.139613
+          }
+        },
+        {
+          "number": 9,
+          "par": 4,
+          "yards": 330,
+          "strokeIndex": 3,
+          "greenAnchor": {
+            "lat": 33.235951,
+            "lng": -117.141657
+          },
+          "teeAnchor": {
+            "lat": 33.237795,
+            "lng": -117.140117
+          }
+        },
+        {
+          "number": 10,
+          "par": 4,
+          "yards": 254,
+          "strokeIndex": 14,
+          "greenAnchor": {
+            "lat": 33.236285,
+            "lng": -117.14484
+          },
+          "teeAnchor": {
+            "lat": 33.235607,
+            "lng": -117.143035
+          }
+        },
+        {
+          "number": 11,
+          "par": 3,
+          "yards": 136,
+          "strokeIndex": 12,
+          "greenAnchor": {
+            "lat": 33.237743,
+            "lng": -117.145591
+          },
+          "teeAnchor": {
+            "lat": 33.236857,
+            "lng": -117.145031
+          }
+        },
+        {
+          "number": 12,
+          "par": 4,
+          "yards": 306,
+          "strokeIndex": 6,
+          "greenAnchor": {
+            "lat": 33.234968,
+            "lng": -117.145355
+          },
+          "teeAnchor": {
+            "lat": 33.237234,
+            "lng": -117.145894
+          }
+        },
+        {
+          "number": 13,
+          "par": 3,
+          "yards": 195,
+          "strokeIndex": 4,
+          "greenAnchor": {
+            "lat": 33.233388,
+            "lng": -117.144127
+          },
+          "teeAnchor": {
+            "lat": 33.23438,
+            "lng": -117.145235
+          }
+        },
+        {
+          "number": 14,
+          "par": 3,
+          "yards": 180,
+          "strokeIndex": 2,
+          "greenAnchor": {
+            "lat": 33.233465,
+            "lng": -117.142043
+          },
+          "teeAnchor": {
+            "lat": 33.233631,
+            "lng": -117.143743
+          }
+        },
+        {
+          "number": 15,
+          "par": 3,
+          "yards": 179,
+          "strokeIndex": 16,
+          "greenAnchor": {
+            "lat": 33.233855,
+            "lng": -117.139342
+          },
+          "teeAnchor": {
+            "lat": 33.23331,
+            "lng": -117.140903
+          }
+        },
+        {
+          "number": 16,
+          "par": 4,
+          "yards": 223,
+          "strokeIndex": 18,
+          "greenAnchor": {
+            "lat": 33.231398,
+            "lng": -117.13795
+          },
+          "teeAnchor": {
+            "lat": 33.232922,
+            "lng": -117.138561
+          }
+        },
+        {
+          "number": 17,
+          "par": 3,
+          "yards": 125,
+          "strokeIndex": 8,
+          "greenAnchor": {
+            "lat": 33.230885,
+            "lng": -117.138003
+          },
+          "teeAnchor": {
+            "lat": 33.231439,
+            "lng": -117.138752
+          }
+        },
+        {
+          "number": 18,
+          "par": 4,
+          "yards": 324,
+          "strokeIndex": 10,
+          "greenAnchor": {
+            "lat": 33.231232,
+            "lng": -117.140967
+          },
+          "teeAnchor": {
+            "lat": 33.230658,
+            "lng": -117.138518
+          }
+        }
+      ]
+    },
+    {
+      "id": "the-vineyard-at-escondido",
+      "name": "The Vineyard At Escondido",
+      "aliases": [
+        "The Vineyard At Escondido"
+      ],
+      "location": {
+        "lat": 33.07273,
+        "lng": -117.05403
+      },
+      "holes": [
+        {
+          "number": 1,
+          "par": 4,
+          "yards": 396,
+          "strokeIndex": 2,
+          "greenAnchor": {
+            "lat": 33.069494,
+            "lng": -117.056016
+          },
+          "teeAnchor": {
+            "lat": 33.0716,
+            "lng": -117.053691
+          }
+        },
+        {
+          "number": 2,
+          "par": 4,
+          "yards": 346,
+          "strokeIndex": 6,
+          "greenAnchor": {
+            "lat": 33.067687,
+            "lng": -117.057942
+          },
+          "teeAnchor": {
+            "lat": 33.069656,
+            "lng": -117.056521
+          }
+        },
+        {
+          "number": 3,
+          "par": 3,
+          "yards": 121,
+          "strokeIndex": 16,
+          "greenAnchor": {
+            "lat": 33.06877,
+            "lng": -117.058854
+          },
+          "teeAnchor": {
+            "lat": 33.068022,
+            "lng": -117.058733
+          }
+        },
+        {
+          "number": 4,
+          "par": 4,
+          "yards": 387,
+          "strokeIndex": 10,
+          "greenAnchor": {
+            "lat": 33.071863,
+            "lng": -117.054407
+          },
+          "teeAnchor": {
+            "lat": 33.070234,
+            "lng": -117.057379
+          }
+        },
+        {
+          "number": 5,
+          "par": 4,
+          "yards": 377,
+          "strokeIndex": 12,
+          "greenAnchor": {
+            "lat": 33.070647,
+            "lng": -117.057636
+          },
+          "teeAnchor": {
+            "lat": 33.072333,
+            "lng": -117.054756
+          }
+        },
+        {
+          "number": 6,
+          "par": 3,
+          "yards": 149,
+          "strokeIndex": 14,
+          "greenAnchor": {
+            "lat": 33.071724,
+            "lng": -117.05923
+          },
+          "teeAnchor": {
+            "lat": 33.070685,
+            "lng": -117.059015
+          }
+        },
+        {
+          "number": 7,
+          "par": 4,
+          "yards": 276,
+          "strokeIndex": 18,
+          "greenAnchor": {
+            "lat": 33.073221,
+            "lng": -117.057183
+          },
+          "teeAnchor": {
+            "lat": 33.072144,
+            "lng": -117.059171
+          }
+        },
+        {
+          "number": 8,
+          "par": 4,
+          "yards": 398,
+          "strokeIndex": 4,
+          "greenAnchor": {
+            "lat": 33.07142,
+            "lng": -117.058524
+          },
+          "teeAnchor": {
+            "lat": 33.073205,
+            "lng": -117.055719
+          }
+        },
+        {
+          "number": 9,
+          "par": 5,
+          "yards": 488,
+          "strokeIndex": 8,
+          "greenAnchor": {
+            "lat": 33.072895,
+            "lng": -117.054772
+          },
+          "teeAnchor": {
+            "lat": 33.070818,
+            "lng": -117.058527
+          }
+        },
+        {
+          "number": 10,
+          "par": 4,
+          "yards": 371,
+          "strokeIndex": 7,
+          "greenAnchor": {
+            "lat": 33.0718,
+            "lng": -117.049587
+          },
+          "teeAnchor": {
+            "lat": 33.072933,
+            "lng": -117.052752
+          }
+        },
+        {
+          "number": 11,
+          "par": 4,
+          "yards": 435,
+          "strokeIndex": 3,
+          "greenAnchor": {
+            "lat": 33.069634,
+            "lng": -117.044416
+          },
+          "teeAnchor": {
+            "lat": 33.071609,
+            "lng": -117.04761
+          }
+        },
+        {
+          "number": 12,
+          "par": 3,
+          "yards": 152,
+          "strokeIndex": 15,
+          "greenAnchor": {
+            "lat": 33.069391,
+            "lng": -117.046183
+          },
+          "teeAnchor": {
+            "lat": 33.069135,
+            "lng": -117.045081
+          }
+        },
+        {
+          "number": 13,
+          "par": 4,
+          "yards": 454,
+          "strokeIndex": 5,
+          "greenAnchor": {
+            "lat": 33.068141,
+            "lng": -117.042251
+          },
+          "teeAnchor": {
+            "lat": 33.068869,
+            "lng": -117.046382
+          }
+        },
+        {
+          "number": 14,
+          "par": 4,
+          "yards": 386,
+          "strokeIndex": 11,
+          "greenAnchor": {
+            "lat": 33.067584,
+            "lng": -117.038748
+          },
+          "teeAnchor": {
+            "lat": 33.067624,
+            "lng": -117.04219
+          }
+        },
+        {
+          "number": 15,
+          "par": 5,
+          "yards": 531,
+          "strokeIndex": 13,
+          "greenAnchor": {
+            "lat": 33.069067,
+            "lng": -117.044172
+          },
+          "teeAnchor": {
+            "lat": 33.068191,
+            "lng": -117.039467
+          }
+        },
+        {
+          "number": 16,
+          "par": 4,
+          "yards": 432,
+          "strokeIndex": 1,
+          "greenAnchor": {
+            "lat": 33.071234,
+            "lng": -117.048163
+          },
+          "teeAnchor": {
+            "lat": 33.069364,
+            "lng": -117.044998
+          }
+        },
+        {
+          "number": 17,
+          "par": 3,
+          "yards": 154,
+          "strokeIndex": 17,
+          "greenAnchor": {
+            "lat": 33.070739,
+            "lng": -117.04974
+          },
+          "teeAnchor": {
+            "lat": 33.07165,
+            "lng": -117.049155
+          }
+        },
+        {
+          "number": 18,
+          "par": 4,
+          "yards": 394,
+          "strokeIndex": 9,
+          "greenAnchor": {
+            "lat": 33.071477,
+            "lng": -117.053152
+          },
+          "teeAnchor": {
+            "lat": 33.070256,
+            "lng": -117.049909
           }
         }
       ]
