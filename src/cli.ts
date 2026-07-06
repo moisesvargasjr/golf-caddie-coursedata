@@ -9,10 +9,12 @@
  *   npm run cli -- set-par <id> <holeNumber> <par>
  *   npm run cli -- seed-import <golfCourseApiId>   (env GOLF_COURSE_API_KEY)
  *   npm run cli -- import-anchors <exportFile.json> (from the iOS app)
+ *   npm run cli -- sync-combos                      (rebuild 18-hole combos from their nines)
  */
 
 import { readFileSync } from 'node:fs'
 import { load, save, upsertCourse } from './store.js'
+import { loadCombos, syncCombos } from './combos.js'
 import { validateCourseData } from './validate.js'
 import { SCHEMA_VERSION, type CuratedCourse } from './schema.js'
 
@@ -105,18 +107,48 @@ switch (cmd) {
       fail('not an anchor export (expected { courseId, anchors[] })')
     }
     const file = load()
-    const course = file.courses.find((c) => c.id === patch.courseId)
-      ?? fail(`no course "${patch.courseId}" — seed/import the course first`)
+    const combos = loadCombos()
+    // The nines are the anchor source of truth: an export captured on an
+    // 18-hole combo is split back onto its two nines (1–9 → front,
+    // 10–18 → back) so a later sync-combos can never wipe the anchors.
+    const combo = combos.find((d) => d.id === patch.courseId)
+    const target = (holeNumber: number): { course?: CuratedCourse; holeNumber: number } => {
+      if (!combo) {
+        return { course: file.courses.find((c) => c.id === patch.courseId), holeNumber }
+      }
+      const nineId = combo.nines[holeNumber <= 9 ? 0 : 1]
+      return {
+        course: file.courses.find((c) => c.id === nineId),
+        holeNumber: ((holeNumber - 1) % 9) + 1,
+      }
+    }
+    if (!combo && !file.courses.some((c) => c.id === patch.courseId)) {
+      fail(`no course "${patch.courseId}" — seed/import the course first`)
+    }
     let applied = 0
     for (const a of patch.anchors!) {
-      const hole = course.holes.find((h) => h.number === a.holeNumber)
+      const t = target(a.holeNumber)
+      const hole = t.course?.holes.find((h) => h.number === t.holeNumber)
       if (!hole) continue
       if (a.teeAnchor) hole.teeAnchor = a.teeAnchor as { lat: number; lng: number }
       if (a.greenAnchor) hole.greenAnchor = a.greenAnchor as { lat: number; lng: number }
       applied++
     }
+    // Keep every materialized combo in lockstep with its nines in one save.
+    const touchesNine = (id?: string) => combos.some((d) => d.nines.includes(id ?? ''))
+    const synced = combo || touchesNine(patch.courseId) ? syncCombos(file, combos) : []
     save(file) // re-validates (lat/lng ranges etc.)
-    console.log(`✓ merged anchors for ${applied} hole(s) into ${patch.courseId} — review the diff, then commit`)
+    const dest = combo ? `the nines of ${combo.id} (${combo.nines.join(', ')})` : patch.courseId
+    console.log(`✓ merged anchors for ${applied} hole(s) into ${dest} — review the diff, then commit`)
+    if (synced.length) console.log(`  ↳ resynced ${synced.length} combo course(s) from their nines`)
+    break
+  }
+
+  case 'sync-combos': {
+    const file = load()
+    const touched = syncCombos(file, loadCombos())
+    save(file) // re-validates
+    console.log(`✓ rebuilt ${touched.length} combo course(s) from their nines:\n  - ${touched.join('\n  - ')}`)
     break
   }
 
@@ -124,6 +156,6 @@ switch (cmd) {
     console.log(
       `golf-caddie-coursedata CLI (schema v${SCHEMA_VERSION})\n` +
         '  validate | list | show <id> | set-par <id> <hole> <par> |\n' +
-        '  seed-import <golfCourseApiId> | import-anchors <exportFile.json>',
+        '  seed-import <golfCourseApiId> | import-anchors <exportFile.json> | sync-combos',
     )
 }

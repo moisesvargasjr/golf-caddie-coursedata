@@ -1,0 +1,40 @@
+{
+  "combos": [
+    {
+      "id": "oaks-north-north-east",
+      "name": "Oaks North — North/East",
+      "aliases": ["Oaks North", "Oaks North Golf Course"],
+      "nines": ["oaks-north-north", "oaks-north-east"]
+    },
+    {
+      "id": "oaks-north-east-south",
+      "name": "Oaks North — East/South",
+      "aliases": ["Oaks North", "Oaks North Golf Course"],
+      "nines": ["oaks-north-east", "oaks-north-south"]
+    },
+    {
+      "id": "oaks-north-south-north",
+      "name": "Oaks North — South/North",
+      "aliases": ["Oaks North", "Oaks North Golf Course"],
+      "nines": ["oaks-north-south", "oaks-north-north"]
+    },
+    {
+      "id": "los-coyotes-valley-vista",
+      "name": "Los Coyotes — Valley/Vista",
+      "aliases": ["Los Coyotes Country Club", "Los Coyotes"],
+      "nines": ["los-coyotes-valley", "los-coyotes-vista"]
+    },
+    {
+      "id": "los-coyotes-vista-lake",
+      "name": "Los Coyotes — Vista/Lake",
+      "aliases": ["Los Coyotes Country Club", "Los Coyotes"],
+      "nines": ["los-coyotes-vista", "los-coyotes-lake"]
+    },
+    {
+      "id": "los-coyotes-lake-valley",
+      "name": "Los Coyotes — Lake/Valley",
+      "aliases": ["Los Coyotes Country Club", "Los Coyotes"],
+      "nines": ["los-coyotes-lake", "los-coyotes-valley"]
+    }
+  ]
+}
