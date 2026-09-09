@@ -110,10 +110,25 @@ async function boot() {
   $("#total").textContent = course.holes.length;
 
   map = L.map("map", { zoomControl:true }).setView([course.location.lat, course.location.lng], 16);
-  L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-    { maxZoom:21, maxNativeZoom:19, attribution:"Imagery © Esri" }).addTo(map);
-  L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer/tile/{z}/{y}/{x}",
-    { maxZoom:21, maxNativeZoom:19, opacity:.9 }).addTo(map);
+  // --- Satellite base layers (toggle via the control, top-right) ---
+  const esri = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+    { maxZoom:22, maxNativeZoom:19, attribution:"Imagery © Esri" });
+  const usgs = L.tileLayer("https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}",
+    { maxZoom:22, maxNativeZoom:20, attribution:"Imagery courtesy USGS" });
+  const google = L.tileLayer("https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}",
+    { maxZoom:22, maxNativeZoom:21, attribution:"Imagery © Google (unofficial)" });
+  esri.addTo(map); // default base layer
+
+  // roads/labels overlay (toggleable — turn off if it covers a green)
+  const labels = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer/tile/{z}/{y}/{x}",
+    { maxZoom:22, maxNativeZoom:19, opacity:.9 });
+  labels.addTo(map);
+
+  L.control.layers(
+    { "Esri World Imagery": esri, "USGS NAIP (US, hi-res)": usgs, "Google Satellite": google },
+    { "Roads / labels": labels },
+    { position:"topright", collapsed:false }
+  ).addTo(map);
 
   // seed any greenAnchors already present in courses.json
   for (const h of course.holes) {

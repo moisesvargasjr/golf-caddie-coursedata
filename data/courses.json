@@ -528,6 +528,128 @@
       ]
     },
     {
+      "id": "lomas-santa-fe-executive-golf-course",
+      "name": "Lomas Santa Fe Executive Golf Course",
+      "aliases": [
+        "Lomas Santa Fe Executive",
+        "Lomas Santa Fe Exec"
+      ],
+      "location": {
+        "lat": 33.001803,
+        "lng": -117.2467
+      },
+      "holes": [
+        {
+          "number": 1,
+          "par": 3,
+          "yards": 152,
+          "strokeIndex": 1
+        },
+        {
+          "number": 2,
+          "par": 4,
+          "yards": 236,
+          "strokeIndex": 7
+        },
+        {
+          "number": 3,
+          "par": 3,
+          "yards": 141,
+          "strokeIndex": 5
+        },
+        {
+          "number": 4,
+          "par": 3,
+          "yards": 133,
+          "strokeIndex": 11
+        },
+        {
+          "number": 5,
+          "par": 3,
+          "yards": 105,
+          "strokeIndex": 13
+        },
+        {
+          "number": 6,
+          "par": 3,
+          "yards": 90,
+          "strokeIndex": 17
+        },
+        {
+          "number": 7,
+          "par": 3,
+          "yards": 106,
+          "strokeIndex": 15
+        },
+        {
+          "number": 8,
+          "par": 3,
+          "yards": 130,
+          "strokeIndex": 9
+        },
+        {
+          "number": 9,
+          "par": 3,
+          "yards": 169,
+          "strokeIndex": 3
+        },
+        {
+          "number": 10,
+          "par": 3,
+          "yards": 94,
+          "strokeIndex": 10
+        },
+        {
+          "number": 11,
+          "par": 3,
+          "yards": 131,
+          "strokeIndex": 6
+        },
+        {
+          "number": 12,
+          "par": 3,
+          "yards": 121,
+          "strokeIndex": 16
+        },
+        {
+          "number": 13,
+          "par": 3,
+          "yards": 97,
+          "strokeIndex": 18
+        },
+        {
+          "number": 14,
+          "par": 4,
+          "yards": 257,
+          "strokeIndex": 4
+        },
+        {
+          "number": 15,
+          "par": 3,
+          "yards": 94,
+          "strokeIndex": 12
+        },
+        {
+          "number": 16,
+          "par": 3,
+          "yards": 112,
+          "strokeIndex": 14
+        },
+        {
+          "number": 17,
+          "par": 3,
+          "yards": 127,
+          "strokeIndex": 8
+        },
+        {
+          "number": 18,
+          "par": 3,
+          "yards": 136,
+          "strokeIndex": 2
+        }
+      ]
+    },
+    {
       "id": "los-coyotes-lake",
       "name": "Los Coyotes — Lake",
       "aliases": [
