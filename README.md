@@ -58,10 +58,49 @@ After (re-)marking anchors on a nine:
 
 ## Status
 
-- `oaks-at-the-welk` — The Oaks at the Welk (par-3, 18×par 3 = 54).
-  `location` is an approximate resort centroid; proximity matching is
-  tolerant, refine if a round ever fails to match.
-- `los-coyotes-{lake,valley,vista}` + 3 combos — Los Coyotes CC (Buena Park,
-  3×9). Pars / men's HCP / black-tee yards from the greenskeeper.org card,
-  cross-checked vs GolfPass (Valley/Vista = par 72, 7,052 yds). Anchors not
-  yet marked — capture in-app on the three nines, then `sync-combos`.
+23 entries across 13 facilities: 11 standalone 18s, plus 6 nines + 6 combos.
+"Card" = yards + stroke index; every entry has par.
+
+| Course | Par | Card | Greens | Tees |
+| --- | --- | --- | --- | --- |
+| `boulder-oaks-golf-club` — Boulder Oaks GC (Escondido) | 70 | ✓ | ✓ | — |
+| `dos-osos` — Dos Osos GC, ex-Eagle Crest (Escondido) | 72 | ✓ | 10/18 | 7/18 |
+| `emerald-isle-golf-course` — Emerald Isle GC | 55 | — | ✓ | ✓ |
+| `lomas-santa-fe-executive-golf-course` — Lomas Santa Fe Executive | 56 | ✓ | ✓ | ✓ |
+| `los-coyotes-{lake,valley,vista}` + 3 combos — Los Coyotes CC (Buena Park, 3×9) | 35/36/36 | ✓ | ✓ | ✓ |
+| `oaks-at-the-welk` — The Oaks at the Welk (par-3) | 54 | ✓ | ✓ | ✓ |
+| `oaks-north-{north,east,south}` + 3 combos — Oaks North (3×9 executive) | 30/30/30 | — | ✓ | ✓ |
+| `rancho-bernardo-inn` — Rancho Bernardo Inn | 72 | ✓ | ✓ | ✓ |
+| `rancho-carlsbad-golf-club` — Rancho Carlsbad GC (par-3) | 54 | — | ✓ | — |
+| `reidy-creek-golf-course` — Reidy Creek GC (Escondido, par-3) | 54 | ✓ | ✓ | ✓ |
+| `the-fountains` — The Fountains (Welk Resort) | 62 | ✓ | ✓ | ✓ |
+| `the-vineyard-at-escondido` — The Vineyard at Escondido | 70 | ✓ | ✓ | ✓ |
+| `town-of-wallkill-golf-club` — Town of Wallkill GC (Middletown NY) | 72 | ✓ | ✓ | — |
+
+Notes:
+
+- The Oaks / The Fountains (Welk Resort) — the two courses share a clubhouse
+  and their first tees are ~125 yds apart, so each `location` is its own
+  hole-1 tee (the app links a round to the NEAREST location within 3 km).
+  Oaks card (Blue yards, men's SI) from GolfCourseAPI; its hand-marked
+  anchors agree with the card within 15 yds on every hole.
+- Los Coyotes — pars / men's HCP / black-tee yards from the greenskeeper.org
+  card, cross-checked vs GolfPass (Valley/Vista = par 72, 7,052 yds).
+- Lomas Santa Fe Executive — anchors derived from OpenStreetMap green/tee
+  polygons, checked against satellite imagery. Tee anchors are tee-box
+  centres, so anchor distances run ~10 yds short of the card. Not yet
+  field-tested.
+- Reidy Creek — card from GolfCourseAPI (blue tees); anchors derived from
+  OpenStreetMap green/tee polygons and checked against satellite imagery
+  (anchor distances match the card within a few yards). Not yet field-tested;
+  hole 1's tee anchor is the mapped 117-yd tee (the 138 blue tee isn't
+  identifiable from imagery).
+- Dos Osos — par + stroke index confirmed from the physical scorecard; Blue
+  yards from GolfCourseAPI ("Eagle Crest", identical par/SI). Partial anchors:
+  13–15 from OpenStreetMap, 2–9 hand-picked from satellite imagery and kept
+  only where the card distance or routing confirmed them. Holes 1, 10–12 and
+  16–18 are deliberately unmarked — capture in-app. `location` moved ~1.5 mi
+  to the actual clubhouse (was a rough guess).
+
+To do: tee anchors for Boulder Oaks, Rancho Carlsbad, Town of Wallkill; remaining
+Dos Osos anchors (greens 1, 9–12, 16–18).
