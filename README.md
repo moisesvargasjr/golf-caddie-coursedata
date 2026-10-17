@@ -58,7 +58,7 @@ After (re-)marking anchors on a nine:
 
 ## Status
 
-23 entries across 13 facilities: 11 standalone 18s, plus 6 nines + 6 combos.
+24 entries across 14 facilities: 12 standalone 18s, plus 6 nines + 6 combos.
 "Card" = yards + stroke index; every entry has par.
 
 | Course | Par | Card | Greens | Tees |
@@ -68,6 +68,7 @@ After (re-)marking anchors on a nine:
 | `emerald-isle-golf-course` — Emerald Isle GC | 55 | — | ✓ | ✓ |
 | `lomas-santa-fe-executive-golf-course` — Lomas Santa Fe Executive | 56 | ✓ | ✓ | ✓ |
 | `los-coyotes-{lake,valley,vista}` + 3 combos — Los Coyotes CC (Buena Park, 3×9) | 35/36/36 | ✓ | ✓ | ✓ |
+| `native-oaks-golf-club` — Native Oaks GC, ex-Woods Valley (Valley Center) | 72 | ✓ | ✓ | ✓ |
 | `oaks-at-the-welk` — The Oaks at the Welk (par-3) | 54 | ✓ | ✓ | ✓ |
 | `oaks-north-{north,east,south}` + 3 combos — Oaks North (3×9 executive) | 30/30/30 | — | ✓ | ✓ |
 | `rancho-bernardo-inn` — Rancho Bernardo Inn | 72 | ✓ | ✓ | ✓ |
@@ -95,6 +96,12 @@ Notes:
   (anchor distances match the card within a few yards). Not yet field-tested;
   hole 1's tee anchor is the mapped 117-yd tee (the 138 blue tee isn't
   identifiable from imagery).
+- Native Oaks — par / men's SI / Blue (M) yards from the golfingrecord.com
+  card (pars cross-checked with OpenGolfAPI; OSM tags hole 5 as par 5, the
+  cards say 4). Anchors from OpenStreetMap: green = centre of the green polygon
+  holding each hole's pin; tee = the tee box on that hole whose distance to the
+  green best matches the Blue yardage (all 18 within 16 yds of the card).
+  Not yet field-tested — first round 2026-10-17.
 - Dos Osos — par + stroke index confirmed from the physical scorecard; Blue
   yards from GolfCourseAPI ("Eagle Crest", identical par/SI). Partial anchors:
   13–15 from OpenStreetMap, 2–9 hand-picked from satellite imagery and kept

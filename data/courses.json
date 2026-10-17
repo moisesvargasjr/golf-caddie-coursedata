@@ -2101,6 +2101,272 @@
       ]
     },
     {
+      "id": "native-oaks-golf-club",
+      "name": "Native Oaks Golf Club",
+      "aliases": [
+        "Native Oaks Golf Course",
+        "Woods Valley Golf Club"
+      ],
+      "location": {
+        "lat": 33.208341,
+        "lng": -117.026294
+      },
+      "holes": [
+        {
+          "number": 1,
+          "par": 4,
+          "yards": 380,
+          "strokeIndex": 9,
+          "teeAnchor": {
+            "lat": 33.208341,
+            "lng": -117.026294
+          },
+          "greenAnchor": {
+            "lat": 33.211362,
+            "lng": -117.025266
+          }
+        },
+        {
+          "number": 2,
+          "par": 5,
+          "yards": 524,
+          "strokeIndex": 5,
+          "teeAnchor": {
+            "lat": 33.211814,
+            "lng": -117.025084
+          },
+          "greenAnchor": {
+            "lat": 33.211856,
+            "lng": -117.030253
+          }
+        },
+        {
+          "number": 3,
+          "par": 3,
+          "yards": 129,
+          "strokeIndex": 17,
+          "teeAnchor": {
+            "lat": 33.211526,
+            "lng": -117.030634
+          },
+          "greenAnchor": {
+            "lat": 33.212309,
+            "lng": -117.031402
+          }
+        },
+        {
+          "number": 4,
+          "par": 4,
+          "yards": 383,
+          "strokeIndex": 7,
+          "teeAnchor": {
+            "lat": 33.213169,
+            "lng": -117.031923
+          },
+          "greenAnchor": {
+            "lat": 33.212317,
+            "lng": -117.028382
+          }
+        },
+        {
+          "number": 5,
+          "par": 4,
+          "yards": 419,
+          "strokeIndex": 1,
+          "teeAnchor": {
+            "lat": 33.213057,
+            "lng": -117.028934
+          },
+          "greenAnchor": {
+            "lat": 33.213745,
+            "lng": -117.032982
+          }
+        },
+        {
+          "number": 6,
+          "par": 4,
+          "yards": 369,
+          "strokeIndex": 11,
+          "teeAnchor": {
+            "lat": 33.214467,
+            "lng": -117.033055
+          },
+          "greenAnchor": {
+            "lat": 33.213442,
+            "lng": -117.029676
+          }
+        },
+        {
+          "number": 7,
+          "par": 4,
+          "yards": 315,
+          "strokeIndex": 13,
+          "teeAnchor": {
+            "lat": 33.213322,
+            "lng": -117.029362
+          },
+          "greenAnchor": {
+            "lat": 33.212487,
+            "lng": -117.026396
+          }
+        },
+        {
+          "number": 8,
+          "par": 3,
+          "yards": 152,
+          "strokeIndex": 15,
+          "teeAnchor": {
+            "lat": 33.212159,
+            "lng": -117.026264
+          },
+          "greenAnchor": {
+            "lat": 33.212443,
+            "lng": -117.024859
+          }
+        },
+        {
+          "number": 9,
+          "par": 5,
+          "yards": 523,
+          "strokeIndex": 3,
+          "teeAnchor": {
+            "lat": 33.212371,
+            "lng": -117.024302
+          },
+          "greenAnchor": {
+            "lat": 33.207966,
+            "lng": -117.02487
+          }
+        },
+        {
+          "number": 10,
+          "par": 4,
+          "yards": 370,
+          "strokeIndex": 8,
+          "teeAnchor": {
+            "lat": 33.20704,
+            "lng": -117.025657
+          },
+          "greenAnchor": {
+            "lat": 33.205032,
+            "lng": -117.022899
+          }
+        },
+        {
+          "number": 11,
+          "par": 5,
+          "yards": 465,
+          "strokeIndex": 4,
+          "teeAnchor": {
+            "lat": 33.20473,
+            "lng": -117.021821
+          },
+          "greenAnchor": {
+            "lat": 33.205387,
+            "lng": -117.017387
+          }
+        },
+        {
+          "number": 12,
+          "par": 4,
+          "yards": 350,
+          "strokeIndex": 12,
+          "teeAnchor": {
+            "lat": 33.205263,
+            "lng": -117.016101
+          },
+          "greenAnchor": {
+            "lat": 33.205749,
+            "lng": -117.012769
+          }
+        },
+        {
+          "number": 13,
+          "par": 3,
+          "yards": 154,
+          "strokeIndex": 18,
+          "teeAnchor": {
+            "lat": 33.20607,
+            "lng": -117.011476
+          },
+          "greenAnchor": {
+            "lat": 33.206098,
+            "lng": -117.010048
+          }
+        },
+        {
+          "number": 14,
+          "par": 4,
+          "yards": 378,
+          "strokeIndex": 2,
+          "teeAnchor": {
+            "lat": 33.206523,
+            "lng": -117.00906
+          },
+          "greenAnchor": {
+            "lat": 33.208048,
+            "lng": -117.012137
+          }
+        },
+        {
+          "number": 15,
+          "par": 4,
+          "yards": 293,
+          "strokeIndex": 16,
+          "teeAnchor": {
+            "lat": 33.209969,
+            "lng": -117.013527
+          },
+          "greenAnchor": {
+            "lat": 33.209706,
+            "lng": -117.016295
+          }
+        },
+        {
+          "number": 16,
+          "par": 3,
+          "yards": 181,
+          "strokeIndex": 14,
+          "teeAnchor": {
+            "lat": 33.2097,
+            "lng": -117.017745
+          },
+          "greenAnchor": {
+            "lat": 33.210183,
+            "lng": -117.019372
+          }
+        },
+        {
+          "number": 17,
+          "par": 4,
+          "yards": 375,
+          "strokeIndex": 10,
+          "teeAnchor": {
+            "lat": 33.209756,
+            "lng": -117.019591
+          },
+          "greenAnchor": {
+            "lat": 33.211174,
+            "lng": -117.022754
+          }
+        },
+        {
+          "number": 18,
+          "par": 5,
+          "yards": 539,
+          "strokeIndex": 6,
+          "teeAnchor": {
+            "lat": 33.212582,
+            "lng": -117.024309
+          },
+          "greenAnchor": {
+            "lat": 33.208275,
+            "lng": -117.025491
+          }
+        }
+      ]
+    },
+    {
       "id": "oaks-at-the-welk",
       "name": "The Oaks at the Welk",
       "aliases": [
