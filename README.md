@@ -96,12 +96,14 @@ Notes:
   (anchor distances match the card within a few yards). Not yet field-tested;
   hole 1's tee anchor is the mapped 117-yd tee (the 138 blue tee isn't
   identifiable from imagery).
-- Native Oaks — par / men's SI / Blue (M) yards from the golfingrecord.com
+- Native Oaks — par / men's SI / **White (M)** yards from the golfingrecord.com
   card (pars cross-checked with OpenGolfAPI; OSM tags hole 5 as par 5, the
-  cards say 4). Anchors from OpenStreetMap: green = centre of the green polygon
-  holding each hole's pin; tee = the tee box on that hole whose distance to the
-  green best matches the Blue yardage (all 18 within 16 yds of the card).
-  Not yet field-tested — first round 2026-10-17.
+  cards say 4). Greens = centre of the OSM green polygon holding each hole's
+  pin (field test 2026-10-17: the watch track reached every green anchor
+  within 0–10 m). Tees: holes 1–9 are the OSM tee box the watch stood on for
+  the tee shot in that round (all within 3–7 m); holes 10–18 are the tee box
+  whose distance best matches the White yardage (within 14 yds). Back-nine
+  tees not yet field-tested.
 - Dos Osos — par + stroke index confirmed from the physical scorecard; Blue
   yards from GolfCourseAPI ("Eagle Crest", identical par/SI). Partial anchors:
   13–15 from OpenStreetMap, 2–9 hand-picked from satellite imagery and kept

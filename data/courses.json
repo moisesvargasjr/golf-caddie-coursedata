@@ -2108,18 +2108,18 @@
         "Woods Valley Golf Club"
       ],
       "location": {
-        "lat": 33.208341,
-        "lng": -117.026294
+        "lat": 33.208699,
+        "lng": -117.026181
       },
       "holes": [
         {
           "number": 1,
           "par": 4,
-          "yards": 380,
+          "yards": 342,
           "strokeIndex": 9,
           "teeAnchor": {
-            "lat": 33.208341,
-            "lng": -117.026294
+            "lat": 33.208699,
+            "lng": -117.026181
           },
           "greenAnchor": {
             "lat": 33.211362,
@@ -2129,11 +2129,11 @@
         {
           "number": 2,
           "par": 5,
-          "yards": 524,
+          "yards": 490,
           "strokeIndex": 5,
           "teeAnchor": {
-            "lat": 33.211814,
-            "lng": -117.025084
+            "lat": 33.211796,
+            "lng": -117.025459
           },
           "greenAnchor": {
             "lat": 33.211856,
@@ -2143,7 +2143,7 @@
         {
           "number": 3,
           "par": 3,
-          "yards": 129,
+          "yards": 108,
           "strokeIndex": 17,
           "teeAnchor": {
             "lat": 33.211526,
@@ -2157,11 +2157,11 @@
         {
           "number": 4,
           "par": 4,
-          "yards": 383,
+          "yards": 360,
           "strokeIndex": 7,
           "teeAnchor": {
-            "lat": 33.213169,
-            "lng": -117.031923
+            "lat": 33.2131,
+            "lng": -117.031721
           },
           "greenAnchor": {
             "lat": 33.212317,
@@ -2171,11 +2171,11 @@
         {
           "number": 5,
           "par": 4,
-          "yards": 419,
+          "yards": 391,
           "strokeIndex": 1,
           "teeAnchor": {
-            "lat": 33.213057,
-            "lng": -117.028934
+            "lat": 33.212865,
+            "lng": -117.029298
           },
           "greenAnchor": {
             "lat": 33.213745,
@@ -2185,11 +2185,11 @@
         {
           "number": 6,
           "par": 4,
-          "yards": 369,
+          "yards": 339,
           "strokeIndex": 11,
           "teeAnchor": {
-            "lat": 33.214467,
-            "lng": -117.033055
+            "lat": 33.214436,
+            "lng": -117.032711
           },
           "greenAnchor": {
             "lat": 33.213442,
@@ -2199,11 +2199,11 @@
         {
           "number": 7,
           "par": 4,
-          "yards": 315,
+          "yards": 282,
           "strokeIndex": 13,
           "teeAnchor": {
-            "lat": 33.213322,
-            "lng": -117.029362
+            "lat": 33.213057,
+            "lng": -117.028934
           },
           "greenAnchor": {
             "lat": 33.212487,
@@ -2213,11 +2213,11 @@
         {
           "number": 8,
           "par": 3,
-          "yards": 152,
+          "yards": 131,
           "strokeIndex": 15,
           "teeAnchor": {
-            "lat": 33.212159,
-            "lng": -117.026264
+            "lat": 33.21229,
+            "lng": -117.025836
           },
           "greenAnchor": {
             "lat": 33.212443,
@@ -2227,11 +2227,11 @@
         {
           "number": 9,
           "par": 5,
-          "yards": 523,
+          "yards": 496,
           "strokeIndex": 3,
           "teeAnchor": {
-            "lat": 33.212371,
-            "lng": -117.024302
+            "lat": 33.211772,
+            "lng": -117.023822
           },
           "greenAnchor": {
             "lat": 33.207966,
@@ -2241,11 +2241,11 @@
         {
           "number": 10,
           "par": 4,
-          "yards": 370,
+          "yards": 329,
           "strokeIndex": 8,
           "teeAnchor": {
-            "lat": 33.20704,
-            "lng": -117.025657
+            "lat": 33.206733,
+            "lng": -117.025298
           },
           "greenAnchor": {
             "lat": 33.205032,
@@ -2255,11 +2255,11 @@
         {
           "number": 11,
           "par": 5,
-          "yards": 465,
+          "yards": 447,
           "strokeIndex": 4,
           "teeAnchor": {
-            "lat": 33.20473,
-            "lng": -117.021821
+            "lat": 33.205037,
+            "lng": -117.021715
           },
           "greenAnchor": {
             "lat": 33.205387,
@@ -2269,7 +2269,7 @@
         {
           "number": 12,
           "par": 4,
-          "yards": 350,
+          "yards": 342,
           "strokeIndex": 12,
           "teeAnchor": {
             "lat": 33.205263,
@@ -2283,7 +2283,7 @@
         {
           "number": 13,
           "par": 3,
-          "yards": 154,
+          "yards": 137,
           "strokeIndex": 18,
           "teeAnchor": {
             "lat": 33.20607,
@@ -2297,7 +2297,7 @@
         {
           "number": 14,
           "par": 4,
-          "yards": 378,
+          "yards": 371,
           "strokeIndex": 2,
           "teeAnchor": {
             "lat": 33.206523,
@@ -2311,7 +2311,7 @@
         {
           "number": 15,
           "par": 4,
-          "yards": 293,
+          "yards": 277,
           "strokeIndex": 16,
           "teeAnchor": {
             "lat": 33.209969,
@@ -2325,7 +2325,7 @@
         {
           "number": 16,
           "par": 3,
-          "yards": 181,
+          "yards": 171,
           "strokeIndex": 14,
           "teeAnchor": {
             "lat": 33.2097,
@@ -2339,11 +2339,11 @@
         {
           "number": 17,
           "par": 4,
-          "yards": 375,
+          "yards": 346,
           "strokeIndex": 10,
           "teeAnchor": {
-            "lat": 33.209756,
-            "lng": -117.019591
+            "lat": 33.209857,
+            "lng": -117.019892
           },
           "greenAnchor": {
             "lat": 33.211174,
@@ -2353,11 +2353,11 @@
         {
           "number": 18,
           "par": 5,
-          "yards": 539,
+          "yards": 517,
           "strokeIndex": 6,
           "teeAnchor": {
-            "lat": 33.212582,
-            "lng": -117.024309
+            "lat": 33.212371,
+            "lng": -117.024302
           },
           "greenAnchor": {
             "lat": 33.208275,
